@@ -1,7 +1,7 @@
 # 🎨 IDigics Public Profile Themes – Intern Project
 
 Welcome to the **IDigics Public Profile Themes** repository!  
-This space is dedicated to our amazing interns who are experimenting with creative, elegant, and responsive public profile designs for the IDigics platform.
+This space is dedicated for experimenting with creative, elegant, and responsive public profile designs for the IDigics platform.
 
 ## 🌟 Purpose
 
