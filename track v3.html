@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>idigics - John Doe [Reputation]</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <style>
+        :root {
+            --bg-gradient-start: rgb(255, 113, 91);
+            --bg-gradient-end: #f8e9e9;
+            --card-bg: #FFFFFF;
+            --primary-accent:rgb(255, 113, 91);
+            --secondary-accent: #FFCA28;
+            --text-primary: #37474F;
+            --text-secondary: #78909C;
+            --border-light: #CFD8DC;
+            --shadow-color: rgba(100, 130, 140, 0.15);
+
+            --font-family-main: 'Nunito', sans-serif;
+            --base-font-size-mobile: 15px;
+            --base-font-size-desktop: 16px;
+
+            --border-radius-large: 20px;
+            --border-radius-medium: 12px;
+            --border-radius-small: 6px;
+
+            --header-height-mobile: 55px;
+            --header-height-desktop: 60px;
+
+            --padding-mobile: 1rem;
+            --padding-desktop: 1.5rem;
+
+            --gap-mobile: 1rem;
+            --gap-desktop: 1.5rem;
+        }
+
+        *, *::before, *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            font-size: var(--base-font-size-mobile);
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        body {
+            font-family: var(--font-family-main);
+            background: linear-gradient(135deg, var(--bg-gradient-start), var(--bg-gradient-end));
+            color: var(--text-primary);
+            line-height: 1.6;
+            min-height: 100vh;
+            overflow-x: hidden;
+            overflow-y: auto;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .display-container {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            padding: var(--padding-mobile);
+            gap: var(--gap-mobile);
+            width: 100%;
+        }
+
+        .site-header {
+            flex-shrink: 0;
+            height: var(--header-height-mobile);
+            background-color: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(5px);
+            border-radius: var(--border-radius-medium);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 var(--padding-mobile);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 4px 15px var(--shadow-color);
+        }
+
+        .site-logo img {
+             max-height: calc(var(--header-height-mobile) * 0.55);
+             width: auto;
+        }
+
+        .content-grid {
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            gap: var(--gap-mobile);
+            min-height: 0;
+        }
+
+        .profile-card,
+        .details-qr-card,
+        .detailed-metrics,
+        .qr-code-area {
+             background-color: var(--card-bg);
+             border-radius: var(--border-radius-large);
+             box-shadow: 0 6px 20px var(--shadow-color);
+             overflow: hidden;
+        }
+
+        .details-qr-card {
+             background-color: transparent;
+             box-shadow: none;
+             display: flex;
+             flex-direction: column;
+             gap: var(--gap-mobile);
+             flex-grow: 1;
+             min-height: 0;
+             overflow: visible;
+        }
+
+        .profile-card {
+            padding: var(--padding-mobile);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            position: relative;
+            flex-shrink: 0;
+        }
+
+        .profile-avatar-wrapper {
+             margin-bottom: 0.8rem;
+             position: relative;
+             width: 90px;
+             height: 90px;
+             flex-shrink: 0;
+        }
+        .profile-avatar {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid var(--card-bg);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            z-index: 1;
+            position: relative;
+            background-color: var(--text-secondary); color: white;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 2.2rem; font-weight: 700;
+        }
+        .profile-avatar-wrapper::after {
+             content: '';
+             position: absolute;
+             inset: -4px;
+             border: 2px solid var(--primary-accent);
+             border-radius: 50%;
+             opacity: 0.6;
+             z-index: 0;
+         }
+
+        .profile-name {
+            font-size: 1.4rem;
+            font-weight: 800;
+            margin-bottom: 0.1rem;
+            color: var(--text-primary);
+        }
+        .profile-id {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--primary-accent);
+            margin-bottom: 1rem;
+        }
+
+        .rating-section {
+            margin-top: 0.5rem;
+        }
+        .overall-score {
+            font-size: 3.2rem;
+            font-weight: 800;
+            color: var(--primary-accent);
+            line-height: 1;
+            margin-bottom: 0.1rem;
+        }
+        .score-max {
+            font-size: 1.1rem;
+            font-weight: 400;
+            color: var(--text-secondary);
+        }
+        .stars-display {
+            font-size: 1.2rem;
+            margin: 0.3rem 0 0.3rem;
+            color: var(--secondary-accent);
+        }
+        .stars-display .fas, .stars-display .far { margin: 0 2px; vertical-align: middle; }
+
+        .stars-display .fas.fa-star { color: var(--secondary-accent); }
+        .stars-display .fas.fa-star-half-alt { color: var(--secondary-accent); }
+        .stars-display .far.fa-star { color: #BDBDBD; }
+
+        .review-info {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            font-weight: 600;
+        }
+
+        .detailed-metrics {
+            padding: var(--padding-mobile);
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            min-height: 0;
+        }
+        .metrics-header {
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--text-primary);
+             flex-shrink: 0;
+        }
+        .metrics-list {
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            gap: 0.6rem;
+            min-height: 0;
+            overflow: hidden;
+        }
+
+        .metric-row {
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            min-height: 0;
+        }
+        .metric-icon {
+            flex: 0 0 20px;
+            font-size: 1rem;
+            color: var(--primary-accent);
+            text-align: center;
+        }
+        .metric-info {
+             flex: 1 1 auto;
+             display: flex;
+             align-items: center;
+             gap: 0.6rem;
+             min-width: 0;
+        }
+        .metric-label {
+             flex: 0 1 100px;
+             font-weight: 600;
+             font-size: 0.85rem;
+             color: var(--text-primary);
+             white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+         }
+        .metric-bar-container {
+             flex: 1 1 80px;
+             height: 9px;
+             background-color: #ECEFF1;
+             border-radius: 5px;
+             overflow: hidden;
+             min-width: 40px;
+        }
+        .metric-bar-fill {
+             height: 100%;
+             background: linear-gradient(90deg, var(--secondary-accent), #FFA000);
+             border-radius: 5px;
+             transform-origin: left;
+             transform: scaleX(0);
+             transition: transform 1s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+        .metric-bar-fill.animated {
+             transform: var(--transform-scaleX);
+        }
+        .metric-score {
+            flex: 0 0 30px;
+            font-weight: 700;
+            font-size: 0.85rem;
+            color: var(--text-primary);
+            text-align: right;
+        }
+
+        .qr-code-area {
+            padding: 0.8rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+        .qr-code-image-wrapper {
+            width: 130px;
+            height: 130px;
+            background-color: #fff;
+            padding: 6px;
+            border-radius: var(--border-radius-medium);
+        }
+        .qr-code-image-wrapper img {
+            width: 100%;
+            height: 100%;
+            display: block;
+             border-radius: var(--border-radius-small);
+        }
+
+
+        /* Tablet and Desktop Styles (No Scroll) */
+        @media (min-width: 768px) {
+            html {
+                font-size: var(--base-font-size-desktop);
+                height: 100vh;
+                overflow: hidden;
+            }
+
+            body {
+                height: 100vh;
+                overflow: hidden;
+                min-height: 0;
+            }
+
+            .display-container {
+                height: 100%;
+                min-height: 0;
+                padding: var(--padding-desktop);
+                gap: var(--gap-desktop);
+                max-width: 1600px;
+                margin: 0 auto;
+            }
+
+            .site-header {
+                height: var(--header-height-desktop);
+                padding: 0 var(--padding-desktop);
+                border-radius: var(--border-radius-medium);
+            }
+            .site-logo img {
+                 max-height: calc(var(--header-height-desktop) * 0.55);
+            }
+
+            .content-grid {
+                flex-grow: 1;
+                display: grid;
+                grid-template-columns: 1fr 1.6fr; /* Adjusted ratio slightly */
+                gap: var(--gap-desktop);
+                height: 100%;
+                overflow: hidden;
+                min-height: 0;
+            }
+
+            .profile-card {
+                padding: var(--padding-desktop);
+                justify-content: center; /* Vertically center content */
+                height: 100%;
+                overflow: hidden;
+            }
+
+            .profile-avatar-wrapper {
+                 width: clamp(110px, 15vh, 130px); /* Use clamp for responsive size */
+                 height: clamp(110px, 15vh, 130px);
+                 margin-bottom: clamp(1rem, 2vh, 1.5rem);
+            }
+            .profile-avatar {
+                border-width: 5px;
+                font-size: clamp(2.8rem, 5vh, 3.5rem);
+            }
+            .profile-avatar-wrapper::after {
+                 inset: -6px;
+                 border-width: 3px;
+            }
+
+            .profile-name { font-size: clamp(1.6rem, 3vh, 1.8rem); }
+            .profile-id { font-size: clamp(0.9rem, 1.8vh, 1rem); margin-bottom: clamp(1.2rem, 2.5vh, 1.8rem); }
+            .rating-section { margin-top: clamp(0.8rem, 1.5vh, 1rem); }
+            .overall-score { font-size: clamp(3.8rem, 7vh, 4.5rem); }
+            .score-max { font-size: clamp(1.3rem, 2.5vh, 1.5rem); }
+            .stars-display { font-size: clamp(1.4rem, 2.8vh, 1.6rem); margin: clamp(0.4rem, 1vh, 0.6rem) 0; }
+            .review-info { font-size: clamp(0.85rem, 1.7vh, 0.95rem); }
+
+            .details-qr-card {
+                 height: 100%;
+                 overflow: hidden;
+                 gap: var(--gap-desktop);
+            }
+
+            .detailed-metrics {
+                padding: var(--padding-desktop);
+                height: auto; /* Let flexbox determine height */
+                min-height: 0; /* Crucial for flex shrink/grow */
+                overflow: hidden;
+            }
+
+            .metrics-header {
+                 font-size: clamp(1.2rem, 2.5vh, 1.4rem);
+                 margin-bottom: clamp(1.2rem, 2.5vh, 1.5rem);
+            }
+            .metrics-list {
+                justify-content: space-evenly; /* Better distribution */
+                gap: clamp(0.8rem, 1.5vh, 1rem); /* Responsive gap */
+                height: 100%; /* Fill available space */
+                overflow: hidden; /* Clip overflowing items */
+            }
+
+            .metric-row { gap: 0.8rem; }
+            .metric-icon { flex-basis: 22px; font-size: clamp(1rem, 1.8vh, 1.1rem); }
+            .metric-info { gap: 0.8rem; }
+            .metric-label { flex-basis: clamp(110px, 15vw, 130px); font-size: clamp(0.9rem, 1.7vh, 0.95rem); }
+            .metric-bar-container { height: 11px; border-radius: 6px; flex-basis: clamp(100px, 20vw, 180px); min-width: 60px; }
+            .metric-bar-fill { border-radius: 6px; }
+            .metric-score { flex-basis: 35px; font-size: clamp(0.9rem, 1.8vh, 1rem); }
+
+            .qr-code-area {
+                 padding: clamp(1rem, 2vh, 1.2rem);
+                 min-height: 0; /* Override potential min-height */
+            }
+            .qr-code-image-wrapper {
+                 width: clamp(150px, 20vh, 180px); /* Responsive QR code */
+                 height: clamp(150px, 20vh, 180px);
+                 padding: 8px;
+                 border-radius: var(--border-radius-medium);
+             }
+             .qr-code-image-wrapper img {
+                 border-radius: var(--border-radius-small);
+             }
+        }
+
+        @media (min-width: 1200px) {
+             .profile-avatar-wrapper {
+                 width: 130px;
+                 height: 130px;
+             }
+             .profile-avatar {
+                 font-size: 3.5rem;
+             }
+             .profile-name { font-size: 1.8rem; }
+             .overall-score { font-size: 4.5rem; }
+             .score-max { font-size: 1.5rem; }
+             .stars-display { font-size: 1.6rem; }
+             .review-info { font-size: 0.95rem; }
+
+             .metrics-header { font-size: 1.4rem; margin-bottom: 1.5rem; }
+             .metric-icon { font-size: 1.2rem; }
+             .metric-label { flex-basis: 130px; font-size: 0.95rem; }
+             .metric-bar-container { height: 12px; border-radius: 7px; flex-basis: 180px; }
+             .metric-bar-fill { border-radius: 7px; }
+             .metric-score { font-size: 1rem; }
+
+             .qr-code-area { padding: 1.2rem; }
+             .qr-code-image-wrapper {
+                  width: 180px;
+                  height: 180px;
+                  padding: 10px;
+              }
+        }
+
+         @media (min-width: 1600px) {
+              .qr-code-image-wrapper {
+                  width: 200px;
+                  height: 200px;
+              }
+              .metric-label { flex-basis: 140px; }
+              .metric-bar-container { flex-basis: 200px; }
+         }
+
+    </style>
+</head>
+<body>
+    <div class="display-container">
+        <header class="site-header">
+            <div class="site-logo">
+                 <a href="#">
+                     <img src="./idigics logo.png" alt="idigics Logo">
+                 </a>
+            </div>
+             <div class="clock-display"></div>
+        </header>
+
+        <main class="content-grid">
+            <section class="profile-card">
+                <div class="profile-avatar-wrapper">
+                    <img src="./batman.png" alt="John Doe Avatar" class="profile-avatar">
+                </div>
+                <h1 class="profile-name">John Doe</h1>
+                <p class="profile-id">Freelancer</p>
+
+                <div class="rating-section">
+                    <span class="overall-score">4.8</span><span class="score-max">/5</span>
+                    <div class="stars-display"></div>
+                    <p class="review-info">Based on 18 Reviews</p>
+                </div>
+            </section>
+
+            <section class="details-qr-card">
+                <div class="detailed-metrics">
+                    <h2 class="metrics-header">Performance Breakdown</h2>
+                    <div class="metrics-list">
+                        <div class="metric-row" data-score="5">
+                            <span class="metric-icon"><i class="fas fa-star fa-fw"></i></span>
+                            <div class="metric-info">
+                                <span class="metric-label">Quality Of Work</span>
+                                <div class="metric-bar-container"><div class="metric-bar-fill"></div></div>
+                            </div>
+                            <span class="metric-score">5</span>
+                        </div>
+                         <div class="metric-row" data-score="4.6">
+                            <span class="metric-icon"><i class="fas fa-hand-holding-usd fa-fw"></i></span>
+                            <div class="metric-info">
+                                <span class="metric-label">Cost Effectiveness</span>
+                                <div class="metric-bar-container"><div class="metric-bar-fill"></div></div>
+                            </div>
+                            <span class="metric-score">4.6</span>
+                        </div>
+                         <div class="metric-row" data-score="4.9">
+                            <span class="metric-icon"><i class="fas fa-hourglass-half fa-fw"></i></span>
+                            <div class="metric-info">
+                                <span class="metric-label">Timeliness</span>
+                                <div class="metric-bar-container"><div class="metric-bar-fill"></div></div>
+                            </div>
+                            <span class="metric-score">4.9</span>
+                        </div>
+                         <div class="metric-row" data-score="4.8">
+                             <span class="metric-icon"><i class="fas fa-comments fa-fw"></i></span>
+                            <div class="metric-info">
+                                <span class="metric-label">Communication</span>
+                                <div class="metric-bar-container"><div class="metric-bar-fill"></div></div>
+                            </div>
+                            <span class="metric-score">4.8</span>
+                        </div>
+                         <div class="metric-row" data-score="4.7">
+                            <span class="metric-icon"><i class="fas fa-rocket fa-fw"></i></span>
+                            <div class="metric-info">
+                                <span class="metric-label">Agility</span>
+                                <div class="metric-bar-container"><div class="metric-bar-fill"></div></div>
+                            </div>
+                            <span class="metric-score">4.7</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="qr-code-area">
+                     <div class="qr-code-image-wrapper">
+                          <img src="./qrcode.png" alt="Scan for Profile Details" class="qr-code">
+                     </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const metricRows = document.querySelectorAll('.metric-row');
+            metricRows.forEach((row, index) => {
+                const score = parseFloat(row.dataset.score);
+                const maxScore = 5;
+                const barFill = row.querySelector('.metric-bar-fill');
+
+                if (!isNaN(score) && barFill && score >= 0 && score <= maxScore) {
+                    const percentage = Math.min((score / maxScore) * 100, 100);
+                    barFill.style.setProperty('--transform-scaleX', `scaleX(${percentage / 100})`);
+                    setTimeout(() => {
+                         barFill.classList.add('animated');
+                    }, 250 + index * 50);
+                } else if (barFill) {
+                     console.warn("Invalid score for metric:", row.querySelector('.metric-label')?.textContent, score);
+                     barFill.style.transform = 'scaleX(0)';
+                }
+            });
+
+             const overallScoreElement = document.querySelector('.overall-score');
+             const starsContainer = document.querySelector('.stars-display');
+
+             if (overallScoreElement && starsContainer) {
+                 const overallScore = parseFloat(overallScoreElement.textContent);
+                 if (!isNaN(overallScore)) {
+                     const maxStars = 5;
+                     starsContainer.innerHTML = '';
+                     for (let i = 1; i <= maxStars; i++) {
+                         const star = document.createElement('i');
+                         const scoreDifference = overallScore - (i - 1);
+                         star.classList.add('fa-fw');
+                         if (scoreDifference >= 0.75) { star.className = 'fas fa-star fa-fw'; }
+                         else if (scoreDifference >= 0.25) { star.className = 'fas fa-star-half-alt fa-fw'; }
+                         else { star.className = 'far fa-star fa-fw'; }
+                         starsContainer.appendChild(star);
+                     }
+                 } else {
+                     console.warn("Could not parse overall score:", overallScoreElement.textContent);
+                     starsContainer.innerHTML = Array(5).fill('<i class="far fa-star fa-fw"></i>').join('');
+                 }
+             } else {
+                 console.warn("Missing score or stars container element.");
+             }
+        });
+    </script>
+
+</body>
+</html>

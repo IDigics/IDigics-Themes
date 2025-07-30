@@ -1,0 +1,1190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Idigics: Verifiable Trust & Accountability for Professionals</title>
+    <meta name="description" content="Idigics builds trust between clients and providers with verified profiles, anti-cheat tracking, and reputation tools. Join the future of reliable service delivery.">
+    <meta name="keywords" content="Idigics, trust, accountability, verified providers, anti-cheat, freelance reputation, service verification, digital trust, reputation building">
+    <link rel="canonical" href="https://www.idigics.com/" />
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="Idigics: Verifiable Trust & Accountability for Professionals" />
+    <meta property="og:description" content="Idigics builds trust between clients and providers with verified profiles, anti-cheat tracking, and reputation tools. Join the future of reliable service delivery." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://www.idigics.com/" />
+
+    <!-- Use our logo PNG hosted in a static folder, be sure it is accessible to public-->
+    <meta property="og:image" content="https://www.idigics.com/path/to/logo.png" /> 
+    <meta property="og:site_name" content="Idigics" />
+    <meta name="twitter:card" content="summary_large_image" /> 
+    <meta name="twitter:title" content="Idigics: Verifiable Trust & Accountability for Professionals" />
+    <meta name="twitter:description" content="Build verifiable trust online. Idigics offers verified profiles, anti-cheat tracking & reputation tools for professionals and clients." />
+    
+    <!-- Use the same image as OG -->
+    <meta name="twitter:image" content="https://www.idigics.com/path/to/logo.png" />
+    
+    <!-- Standard Favicon : Must Change path -->
+    <link rel="icon" href="/favicon-32x32.png" type="image/png" sizes="32x32">
+    <link rel="icon" href="/favicon-16x16.png" type="image/png" sizes="16x16">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" sizes="180x180">
+
+    <!-- Not Now But Keep it Commented: Manifest file for PWAs -->
+    <!-- <link rel="manifest" href="/site.webmanifest"> -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+
+    <style>
+        /* --- CSS Variables --- */
+        :root {
+            /* LIGHT MODE DEFAULTS */
+            --primary-color: rgb(230, 80, 60);
+            --secondary-color: #007aff;
+            --bg-color: #ffffff;
+            --card-bg-color: #f8f9fa;
+            --text-color: #212529;
+            --medium-text-color: #6c757d;
+            --border-color: #dee2e6;
+            --header-bg: rgba(255, 255, 255, 0.8);
+            --heading-font: 'Poppins', sans-serif;
+            --body-font: 'Inter', sans-serif;
+            --border-radius: 8px;
+            --container-width: 1140px;
+            --primary-color-rgb: 230, 80, 60;
+        }
+
+        body.dark-mode {
+            /* DARK MODE OVERRIDES */
+            --primary-color: rgb(255, 113, 91);
+            --secondary-color: #0a84ff;
+            --bg-color: #121212;
+            --card-bg-color: #1e1e1e;
+            --text-color: #f0f0f0;
+            --medium-text-color: #a0a0a0;
+            --border-color: rgba(255, 255, 255, 0.1);
+            --header-bg: rgba(18, 18, 18, 0.8);
+            --primary-color-rgb: 255, 113, 91;
+        }
+
+        /* --- Basic Reset & Body --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--body-font);
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            overflow-x: hidden;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        /* --- Utility Classes --- */
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        .highlight {
+            color: var(--primary-color);
+        }
+
+        /* --- Header & Navigation --- */
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: var(--header-bg);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            padding: 1rem 0;
+            border-bottom: 1px solid var(--border-color);
+            transition: background-color 0.3s ease, border-color 0.3s ease;
+        }
+
+        header nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+        }
+
+        #logo-image {
+            height: 1.8rem;
+            width: auto;
+            display: block;
+        }
+
+        header nav ul#main-nav-list {
+            list-style: none;
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            padding-left: 0;
+            margin: 0;
+        }
+
+        header nav ul li a {
+            color: var(--text-color);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            white-space: nowrap;
+        }
+
+        header nav ul li a:hover {
+            color: var(--primary-color);
+        }
+
+        .nav-cta {
+            background-color: var(--primary-color);
+            color: #ffffff;
+            padding: 0.5rem 1rem;
+            border-radius: var(--border-radius);
+            font-weight: 600;
+            transition: filter 0.3s ease, background-color 0.3s ease, color 0.3s ease;
+            display: inline-block;
+            text-decoration: none;
+        }
+        .nav-cta:hover {
+             filter: brightness(1.1);
+             color: #ffffff !important;
+        }
+
+        #theme-toggle {
+            background: none;
+            border: 1px solid var(--border-color);
+            color: var(--medium-text-color);
+            padding: 0.4rem 0.8rem;
+            border-radius: var(--border-radius);
+            cursor: pointer;
+            font-size: 0.9rem;
+            transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+            margin-left: 0.5rem;
+            line-height: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        #theme-toggle:hover {
+            background-color: var(--card-bg-color);
+            color: var(--text-color);
+        }
+        #theme-toggle .icon {
+            display: inline-block;
+            width: 1.2em;
+            text-align: center;
+            font-style: normal;
+            line-height: 1;
+        }
+
+        /* --- Mobile Menu --- */
+        .mobile-menu-toggle { display: none; background: none; border: none; cursor: pointer; padding: 10px; margin: 0; z-index: 110; align-self: center; }
+        .hamburger-icon { display: block; width: 25px; height: 3px; background-color: var(--text-color); position: relative; transition: background-color 0.3s ease; }
+        .hamburger-icon::before, .hamburger-icon::after { content: ''; position: absolute; left: 0; width: 100%; height: 3px; background-color: var(--text-color); transition: transform 0.3s ease, top 0.3s ease, background-color 0.3s ease; }
+        .hamburger-icon::before { top: -8px; }
+        .hamburger-icon::after { top: 8px; }
+        .mobile-menu-toggle[aria-expanded="true"] .hamburger-icon { background-color: transparent; }
+        .mobile-menu-toggle[aria-expanded="true"] .hamburger-icon::before { transform: rotate(45deg); top: 0; background-color: var(--text-color); }
+        .mobile-menu-toggle[aria-expanded="true"] .hamburger-icon::after { transform: rotate(-45deg); top: 0; background-color: var(--text-color); }
+
+        /* --- Section Styling --- */
+        main {
+            display: block;
+        }
+
+        section {
+            padding: 80px 0; 
+            overflow: hidden;
+            position: relative;
+        }
+
+        section h2 {
+            font-family: var(--heading-font);
+            font-size: 2.5rem;
+            font-weight: 600;
+            margin-bottom: 40px;
+            color: var(--text-color);
+            text-align: center;
+        }
+
+        section p { 
+            color: var(--medium-text-color);
+            margin-bottom: 20px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            text-align: center; 
+        }
+
+        /* --- Hero Section --- */
+        .hero-section {
+            padding: 100px 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: var(--bg-color);
+            transition: background-color 0.3s ease;
+            min-height: calc(80vh - 70px); 
+        }
+
+        .hero-split-layout {
+            display: flex;
+            align-items: center;
+            gap: 50px; 
+            flex-wrap: wrap;
+        }
+
+        .hero-text-content {
+            flex: 1 1 520px;
+            min-width: 300px;
+            text-align: left;
+        }
+
+        .hero-text-content h1 {
+            font-family: var(--heading-font);
+            font-size: 3.3rem;
+            font-weight: 700;
+            line-height: 1.25;
+            margin-bottom: 25px;
+            color: var(--text-color);
+            text-align: left;
+        }
+
+        .hero-text-content p {
+            font-size: 1.15rem;
+            margin-bottom: 35px;
+            color: var(--medium-text-color);
+            max-width: 550px;
+            text-align: left; 
+            margin-left: 0;
+            margin-right: 0;
+        }
+
+        /* Hero CTA Button */
+        .hero-text-content .cta-button {
+            display: inline-block;
+            background-color: var(--primary-color);
+            color: #ffffff;
+            padding: 14px 35px;
+            font-size: 1.05rem;
+            font-weight: 600;
+            text-decoration: none;
+            border-radius: var(--border-radius);
+            transition: transform 0.3s ease, filter 0.3s ease, background-color 0.3s ease, color 0.3s ease;
+            cursor: pointer;
+            border: none;
+            margin-top: 10px;
+        }
+        .hero-text-content .cta-button:hover {
+            transform: translateY(-3px);
+            filter: brightness(1.15);
+        }
+
+        /* Hero Visual Container */
+        .hero-visual-container {
+            flex: 1 1 450px;
+            min-width: 300px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .hero-visual {
+            width: 100%;
+            max-width: 550px; 
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+         body.dark-mode .hero-visual {
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+        .hero-visual img {
+            display: block;
+            width: 100%;
+            height: auto;
+            aspect-ratio: 4 / 3; 
+            object-fit: cover; 
+            border-radius: var(--border-radius); 
+            transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+        .hero-visual:hover img {
+             transform: scale(1.04); 
+        }
+
+        /* --- Problem Section --- */
+        .problem-section {
+            background-color: var(--card-bg-color);
+            padding: 60px 0; 
+            margin-top: 0; 
+            border-radius: 0;
+            border-top: 1px solid var(--border-color);
+            border-bottom: 1px solid var(--border-color);
+            transition: background-color 0.3s ease, border-color 0.3s ease;
+        }
+         .problem-section h2 {
+            font-size: 1.8rem; 
+            margin-bottom: 15px;
+            color: var(--primary-color);
+         }
+         .problem-section p {
+            font-size: 1.05rem;
+         }
+
+
+        /* --- Features Section --- */
+        .features-section {
+             background-color: var(--bg-color);
+             transition: background-color 0.3s ease;
+             padding: 100px 0;
+        }
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+            gap: 35px;
+        }
+        .feature-card {
+            background-color: var(--card-bg-color);
+            padding: 35px;
+            border-radius: var(--border-radius);
+            border: 1px solid var(--border-color);
+            transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease, border-color 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+        .feature-card:hover {
+            transform: translateY(-8px); 
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.08);
+        }
+        body.dark-mode .feature-card:hover {
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3), 0 0 20px rgba(var(--primary-color-rgb), 0.25);
+        }
+        .feature-icon {
+            margin-bottom: 25px; 
+            color: var(--primary-color);
+            font-size: 2.8rem; 
+            width: 70px; height: 70px;
+            background: rgba(var(--primary-color-rgb), 0.1);
+            display: flex; align-items: center; justify-content: center;
+            border-radius: 50%; line-height: 1;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+        .feature-card h3 {
+            font-family: var(--heading-font);
+            font-size: 1.4rem; 
+            margin-bottom: 15px;
+            color: var(--text-color);
+        }
+        .feature-card p {
+             margin-bottom: 0; font-size: 0.95rem;
+             color: var(--medium-text-color);
+             max-width: 100%; text-align: center;
+        }
+
+        /* --- Benefits Section --- */
+        .benefits-section {
+            background-color: var(--card-bg-color);
+            transition: background-color 0.3s ease, border-color 0.3s ease;
+            border-top: 1px solid var(--border-color);
+            border-bottom: 1px solid var(--border-color);
+             padding: 100px 0; 
+        }
+        .benefits-columns {
+            display: flex; justify-content: space-around;
+            gap: 40px; flex-wrap: wrap;
+        }
+        .benefit-column {
+            flex: 1; min-width: 300px; 
+            background: var(--bg-color); padding: 40px; 
+            border-radius: var(--border-radius);
+            border: 1px solid var(--border-color);
+            transition: background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        body.dark-mode .benefit-column {
+            background: #1a1a1a; 
+            border: 1px solid rgba(var(--primary-color-rgb), 0.2);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+        }
+        .benefit-column h3 {
+            font-family: var(--heading-font); font-size: 1.7rem;
+            margin-bottom: 25px; color: var(--primary-color); text-align: center;
+        }
+        .benefit-column ul { list-style: none; padding-left: 0; }
+        .benefit-column ul li {
+            margin-bottom: 15px; padding-left: 32px; 
+            position: relative; color: var(--medium-text-color); font-size: 1rem;
+        }
+        .benefit-column ul li::before {
+            content: '✓'; position: absolute; left: 0; top: 2px;
+            color: var(--primary-color); font-weight: bold;
+            font-size: 1.2rem;
+            line-height: 1;
+            transition: color 0.3s ease;
+        }
+
+         /* --- Use Cases Section --- */
+        .use-cases-section {
+             position: relative;
+             background-color: var(--bg-color);
+             transition: background-color 0.3s ease;
+             padding: 100px 0 80px 0; 
+        }
+        .use-case-scroll-wrapper {
+            overflow: hidden; position: relative;
+             -webkit-mask-image: linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%);
+             mask-image: linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%);
+             margin-top: 30px;
+        }
+        .use-case-slider {
+            display: flex; gap: 20px; 
+            padding: 25px 10px; 
+            flex-wrap: nowrap; width: max-content;
+            cursor: grab;
+            user-select: none; -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none;
+        }
+        .use-case-slider.active-grab { cursor: grabbing; }
+        .use-case {
+            background: rgba(var(--primary-color-rgb), 0.08);
+            color: var(--primary-color);
+            padding: 12px 25px; 
+            border-radius: 30px; 
+            border: 1px solid rgba(var(--primary-color-rgb), 0.3);
+            font-size: 1rem; 
+            font-weight: 500; white-space: nowrap; flex-shrink: 0;
+            transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, transform 0.2s ease;
+        }
+        .use-case:hover {
+             background-color: var(--primary-color); color: #ffffff;
+             border-color: var(--primary-color);
+             transform: translateY(-2px); 
+        }
+
+         /* --- Future Vision Section --- */
+        .vision-section {
+            background-color: var(--card-bg-color);
+            padding: 80px 0;
+            transition: background-color 0.3s ease, border-color 0.3s ease;
+            border-top: 1px solid var(--border-color);
+        }
+        .vision-section h2 { font-size: 2rem; }
+        .vision-section p { font-size: 1.1rem; }
+
+
+        /* --- Final CTA Section --- */
+        .cta-section {
+            background: linear-gradient(135deg, var(--primary-color), #ff7b64);
+            color: #ffffff; padding: 100px 0;
+            margin-top: 0px;
+            transition: background 0.3s ease;
+            border-top: 1px solid var(--border-color);
+        }
+        .cta-section h2 {
+            color: #fff; font-size: 2.8rem;
+            text-shadow: 1px 1px 4px rgba(0,0,0,0.25); 
+        }
+        .cta-section p {
+             color: rgba(255, 255, 255, 0.95); 
+             font-size: 1.15rem; margin-bottom: 40px; 
+        }
+        .large-cta {
+            padding: 18px 45px; 
+            font-size: 1.2rem;
+            background-color: #ffffff; 
+            color: var(--primary-color);
+            border: 2px solid transparent; 
+            font-weight: 700;
+            border-radius: var(--border-radius); 
+            text-decoration: none;
+            display: inline-block;
+            transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+             box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+        }
+        .large-cta:hover {
+            background-color: var(--bg-color);
+            color: var(--primary-color); 
+            border-color: transparent;
+            transform: translateY(-4px) scale(1.03);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+        }
+
+
+        /* --- Footer --- */
+        footer {
+            background-color: var(--bg-color); 
+            padding: 40px 0; 
+            margin-top: 0;
+            text-align: center; 
+            border-top: 1px solid var(--border-color);
+            transition: background-color 0.3s ease, border-color 0.3s ease;
+        }
+        footer .container {
+             display: flex; 
+             justify-content: space-between; 
+             align-items: center;
+             flex-wrap: wrap; 
+             gap: 20px;
+        }
+        footer p {
+            color: var(--medium-text-color); font-size: 0.9rem;
+            margin-bottom: 0; flex-basis: 100%; order: 2; text-align: center;
+            margin-top: 10px;
+        }
+        footer ul {
+            list-style: none; display: flex; gap: 1.8rem;
+            justify-content: center; padding-left: 0; flex-basis: 100%;
+            order: 1; margin-bottom: 15px;
+        }
+        footer ul li a {
+            color: var(--medium-text-color); text-decoration: none; font-size: 0.9rem;
+            transition: color 0.3s ease;
+        }
+        footer ul li a:hover { color: var(--primary-color); }
+
+
+        /* --- Animations --- */
+        .animate-on-scroll {
+            opacity: 0;
+            transition: opacity 0.8s cubic-bezier(0.25, 0.8, 0.25, 1), transform 0.8s cubic-bezier(0.25, 0.8, 0.25, 1);
+            will-change: opacity, transform;
+        }
+        /* Initial States */
+        .animate-on-scroll.fade-in { transform: translateY(20px); } 
+        .animate-on-scroll.fade-in-up { transform: translateY(40px); }
+        .animate-on-scroll.fade-in-left { transform: translateX(-40px); }
+        .animate-on-scroll.fade-in-right { transform: translateX(40px); }
+        /* Visible State */
+        .animate-on-scroll.visible {
+            opacity: 1;
+            transform: translate(0, 0);
+        }
+        /* Delay Classes */
+        .delay-1 { transition-delay: 0.15s; }
+        .delay-2 { transition-delay: 0.3s; }
+        .delay-3 { transition-delay: 0.45s; }
+        .delay-4 { transition-delay: 0.6s; }
+        .delay-5 { transition-delay: 0.75s; }
+
+
+        /* --- Responsiveness --- */
+        @media (max-width: 992px) {
+            .container { max-width: 960px; padding: 0 25px; }
+            section { padding: 60px 0; }
+            section h2 { font-size: 2.2rem; }
+            .hero-section { padding: 80px 0; min-height: auto;}
+            .hero-text-content h1 { font-size: 2.8rem; }
+            .hero-text-content p { font-size: 1.1rem; }
+            .hero-split-layout { gap: 40px; }
+            .features-grid { grid-template-columns: repeat(auto-fit, minmax(270px, 1fr)); gap: 30px; }
+            .benefits-section, .features-section, .use-cases-section, .cta-section { padding: 80px 0;}
+            header nav ul#main-nav-list { gap: 1.2rem; }
+        }
+
+        @media (max-width: 768px) { 
+             /* Mobile Nav Styles */
+             header nav { flex-wrap: nowrap; }
+             header nav ul#main-nav-list { display: none; }
+             .mobile-menu-toggle { display: block; }
+             header nav ul#main-nav-list.mobile-nav-open {
+                position: absolute; top: 100%; left: 0; width: 100%;
+                background-color: var(--bg-color); border-top: 1px solid var(--border-color);
+                border-bottom: 1px solid var(--border-color); display: flex; flex-direction: column;
+                align-items: stretch; gap: 0; padding: 0.5rem 0; margin: 0;
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); z-index: 105;
+             }
+             header nav ul#main-nav-list.mobile-nav-open li { text-align: center; width: 100%; }
+             header nav ul#main-nav-list.mobile-nav-open li a,
+             header nav ul#main-nav-list.mobile-nav-open li button#theme-toggle {
+                 display: block; padding: 1rem 1.5rem; width: 100%; border-bottom: 1px solid var(--border-color);
+                 color: var(--text-color); font-weight: 500; text-decoration: none;
+             }
+             header nav ul#main-nav-list.mobile-nav-open li:last-child > * { border-bottom: none; }
+             header nav ul#main-nav-list.mobile-nav-open li a.nav-cta {
+                 background-color: transparent; color: var(--primary-color); font-weight: 600; margin: 0; border-radius: 0;
+             }
+             header nav ul#main-nav-list.mobile-nav-open li a.nav-cta:hover { background-color: rgba(var(--primary-color-rgb), 0.1); filter: none; color: var(--primary-color); }
+             header nav ul#main-nav-list.mobile-nav-open li button#theme-toggle {
+                 background: none; border: none; text-align: center; width: 100%; margin: 0; font-size: 1rem;
+             }
+             header nav ul#main-nav-list.mobile-nav-open li button#theme-toggle:hover { background-color: var(--card-bg-color); color: var(--text-color); }
+
+             /* Hero stacking on mobile */
+             .hero-section { padding: 60px 0 40px 0; }
+             .hero-split-layout { gap: 30px; flex-direction: column; } 
+             .hero-text-content { text-align: center; order: 1; flex-basis: auto; }
+             .hero-text-content h1 { font-size: 2.3rem; text-align: center; max-width: 95%; margin: 0 auto 20px auto; }
+             .hero-text-content p { font-size: 1rem; text-align: center; max-width: 90%; margin: 0 auto 30px auto;}
+             .hero-visual-container { order: 2; margin-top: 20px; width: 100%; flex-basis: auto;}
+             .hero-visual { max-width: 85%; margin: 0 auto; }
+
+             /* Other sections */
+             .container { max-width: 100%; padding: 0 20px; }
+             section { padding: 50px 0; }
+             section h2 { font-size: 2rem; }
+             .cta-section { padding: 60px 0;}
+             .cta-section h2 { font-size: 2.2rem; }
+             .benefits-columns { flex-direction: column; gap: 25px; }
+             .benefit-column { min-width: 0; flex-basis: auto; padding: 30px; }
+             .features-grid { gap: 25px; }
+             .feature-card { padding: 30px; }
+             .use-cases-section { padding: 60px 0 40px 0; }
+             .use-case-scroll-wrapper { margin-top: 20px; }
+             .vision-section { padding: 60px 0; }
+             footer .container { flex-direction: column; gap: 15px; padding-top: 30px; }
+             footer ul { order: 1; margin-bottom: 15px; justify-content: center; gap: 1.2rem; }
+             footer p { order: 2; margin-top: 10px; }
+        }
+
+        @media (max-width: 576px) {
+            .container { padding: 0 15px; }
+            .hero-text-content h1 { font-size: 1.9rem; margin-bottom: 15px;}
+            .hero-text-content p { font-size: 0.95rem; margin-bottom: 25px;}
+            .hero-text-content .cta-button { padding: 12px 25px; font-size: 0.95rem; }
+            .large-cta { padding: 15px 30px; font-size: 1.05rem; }
+            section { padding: 40px 0; }
+            section h2 { font-size: 1.7rem; margin-bottom: 30px;}
+            .hero-section { padding: 50px 0 30px 0; }
+            .hero-visual { max-width: 90%; }
+            .cta-section { padding: 50px 0; }
+            .cta-section h2 { font-size: 1.9rem; }
+            .features-grid { grid-template-columns: 1fr; gap: 20px; }
+            .feature-card { padding: 25px; }
+            .feature-icon { font-size: 2.5rem; width: 60px; height: 60px;}
+            .feature-card h3 { font-size: 1.3rem;}
+            .use-case { padding: 10px 20px; font-size: 0.9rem;}
+            .benefit-column h3 { font-size: 1.5rem; }
+            .benefit-column ul li { font-size: 0.95rem; }
+            .footer ul { gap: 1rem; }
+            header nav ul#main-nav-list.mobile-nav-open li a,
+            header nav ul#main-nav-list.mobile-nav-open li button#theme-toggle { padding: 0.8rem 1rem; }
+        }
+
+        /* --- Dark Mode Button Text Colors --- */
+        body.dark-mode .nav-cta { color: #1f1f1f; } 
+        body.dark-mode .nav-cta:hover { color: #000000 !important; }
+        body.dark-mode header nav ul#main-nav-list.mobile-nav-open li a.nav-cta { color: var(--primary-color); } 
+        body.dark-mode header nav ul#main-nav-list.mobile-nav-open li a.nav-cta:hover { background-color: rgba(var(--primary-color-rgb), 0.15); color: var(--primary-color); }
+        body.dark-mode .hero-text-content .cta-button { color: #1f1f1f; }
+        body.dark-mode .large-cta { background-color: #f0f0f0; color: #e6503c;}
+        body.dark-mode .large-cta:hover { background-color: #ffffff; color: #e6503c; }
+
+    </style>
+</head>
+<body>
+
+    <header>
+        <nav class="container">
+            <div class="logo">
+                 <img src="./idigics logo.png" alt="Idigics Logo" id="logo-image">
+            </div>
+            <!-- Mobile Menu Toggle Button -->
+            <button class="mobile-menu-toggle" aria-label="Toggle navigation" aria-expanded="false">
+                <span class="hamburger-icon"></span>
+            </button>
+            <!-- Navigation Links and Theme Toggle Button -->
+            <ul id="main-nav-list">
+                <li><a href="#features">Features</a></li>
+                <li><a href="#benefits">Benefits</a></li>
+                <li><a href="#use-cases">Use Cases</a></li>
+                <li><a href="#cta" class="nav-cta">Get Started</a></li>
+                <li>
+                    <button id="theme-toggle" title="Toggle light/dark mode">
+                        <span class="icon" aria-hidden="true">🌙</span>
+                    </button>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section id="hero" class="hero-section">
+            <div class="container">
+                <div class="hero-split-layout">
+                    <!-- Text Content Column -->
+                    <div class="hero-text-content animate-on-scroll fade-in-left">
+                        <h1>Idigics: Redefining <span class="highlight">Trust</span> & <span class="highlight">Credibility</span> in the Digital Era.</h1>
+                        <p>The next-generation digital ecosystem where providers prove their value and clients hire with confidence. Build your reputation on proof, not just promises.</p>
+                        <a href="#cta" class="cta-button">Join the Trust Network</a>
+                    </div>
+                    <!-- Visual Content Column -->
+                    <div class="hero-visual-container animate-on-scroll fade-in-right delay-1">
+                        <div class="hero-visual">
+                           <img src="./track page.png" alt="Digital Trust and Verified Profiles concept">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Problem/Solution Snippet -->
+        <section class="problem-section">
+            <div class="container animate-on-scroll fade-in">
+                 <h2>Tired of Blind Trust? Welcome to Verifiable Credibility.</h2>
+                 <p>In a world full of claims, Idigics lets professionals earn trust through transparency and proof.. not just marketing.</p>
+                 <p>Clients get clarity. Providers get credibility.</p>
+                </div>
+        </section>
+
+        <!-- Features Section -->
+        <section id="features" class="features-section">
+            <div class="container">
+                <h2 class="animate-on-scroll fade-in">Core Features Driving Transparency</h2>
+                <div class="features-grid">
+                    <div class="feature-card animate-on-scroll fade-in-up">
+                        <div class="feature-icon" aria-hidden="true">✓</div>
+                        <h3>Verified Public Profiles</h3>
+                        <p>Showcase your credibility with profiles that feature real contact information, authentic client ratings, and clear proof of experience.</p>
+                    </div>
+                    <div class="feature-card animate-on-scroll fade-in-up delay-1">
+                         <div class="feature-icon" aria-hidden="true">🛡️</div>
+                        <h3>Anti-Cheat System</h3>
+                        <p>Our coupon-based method reduces fraud and ghosting by ensuring every service interaction is acknowledged, motivating providers to consistently deliver quality work.</p>
+                    </div>
+                     <div class="feature-card animate-on-scroll fade-in-up delay-2">
+                         <div class="feature-icon" aria-hidden="true">⭐</div>
+                        <h3>Transparent Rating System</h3>
+                        <p>Gain granular insights with global ratings and skill-specific scores, offering clients an objective view of provider strengths.</p>
+                    </div>
+                     <div class="feature-card animate-on-scroll fade-in-up delay-3">
+                         <div class="feature-icon" aria-hidden="true">💳</div>
+                        <h3>Smart Business Cards</h3>
+                        <p>Bridge the physical and digital with NFC/QR enabled cards linking directly to your verified Idigics profile for seamless networking.</p>
+                    </div>
+                     <div class="feature-card animate-on-scroll fade-in-up delay-4">
+                         <div class="feature-icon" aria-hidden="true">🔍</div>
+                        <h3>Reputation Matching</h3>
+                        <p>Clients effortlessly find top-rated, verified professionals, minimizing risk and accelerating the hiring process.</p>
+                    </div>
+                     <div class="feature-card animate-on-scroll fade-in-up delay-5">
+                         <div class="feature-icon" aria-hidden="true">📈</div>
+                        <h3>Growth & Networking</h3>
+                        <p>Enhance visibility via searchable public profiles and leverage analytics to connect with collaborators and clients within the ecosystem.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Benefits Section -->
+        <section id="benefits" class="benefits-section">
+            <div class="container">
+                 <h2 class="animate-on-scroll fade-in">Win-Win for Providers & Clients</h2>
+                 <div class="benefits-columns">
+                     <div class="benefit-column animate-on-scroll fade-in-left">
+                         <h3>For Providers</h3>
+                         <ul>
+                             <li>Elevate visibility based on merit, not just budget.</li>
+                             <li>Build an undeniable, verifiable reputation portfolio.</li>
+                             <li>Attract higher-value clients seeking reliability.</li>
+                             <li>Differentiate clearly with proven performance data.</li>
+                             <li>Streamline networking using integrated smart cards.</li>
+                             <li>Gain insights with performance analytics.</li>
+                         </ul>
+                     </div>
+                     <div class="benefit-column animate-on-scroll fade-in-right delay-1">
+                         <h3>For Clients</h3>
+                         <ul>
+                             <li>Access a curated network of genuinely vetted experts.</li>
+                             <li>Hire with unparalleled confidence using objective data.</li>
+                             <li>Significantly reduce risks of scams & poor service.</li>
+                             <li>Save valuable time finding dependable professionals.</li>
+                             <li>Experience peace of mind with validated credentials.</li>
+                              <li>Make informed decisions based on specific skills.</li>
+                         </ul>
+                     </div>
+                 </div>
+            </div>
+        </section>
+
+         <!-- Use Cases Section -->
+         <section id="use-cases" class="use-cases-section">
+             <div class="container">
+                 <h2 class="animate-on-scroll fade-in">Who Benefits from Idigics?</h2>
+                 <div class="use-case-scroll-wrapper">
+                     <div class="use-case-slider animate-on-scroll fade-in">
+                        <div class="use-case">Technicians & Engineers</div>
+                        <div class="use-case">Experts & Consultants</div>
+                        <div class="use-case">Artisans & Craftspersons</div>
+                        <div class="use-case">Freelancers</div>
+                        <div class="use-case">Online Educators</div>
+
+                        <div class="use-case">Business Owners</div>
+                        <div class="use-case">Entrepreneurs</div>
+                        <div class="use-case">Companies & Startups</div>
+                        <div class="use-case">Digital Agencies</div>
+
+                        <div class="use-case">Organizations</div>
+                        <div class="use-case">Clubs</div>
+
+                        <div class="use-case">Gig Workers</div>
+                        <div class="use-case">Tradespeople</div>
+
+                        <div class="use-case">Anyone Seeking Reliability</div>
+                        <div class="use-case">And more ...</div>
+                   </div>
+                 </div>
+             </div>
+         </section>
+
+         <!-- Future Vision Section -->
+        <section id="vision" class="vision-section">
+             <div class="container text-center animate-on-scroll fade-in">
+                 <h2>Innovating for Tomorrow's Trust</h2>
+                 <p>Idigics is committed to shaping the future of professional interactions. We believe that verifiable trust is the bedrock of sustainable success. By championing transparency and performance-based reputation, we're building a forward-thinking ecosystem where credibility unlocks opportunity, and trust is earned, not just claimed.</p>
+             </div>
+        </section>
+
+        <!-- Final CTA Section -->
+        <section id="cta" class="cta-section text-center">
+            <div class="container animate-on-scroll fade-in">
+                <h2>Ready to Join the New Standard of Trust?</h2>
+                <p>Become part of a growing ecosystem where performance is verified, reputation is currency, and credibility drives success.</p>
+                <a href="#" class="cta-button large-cta">Sign Up & Build Your Verified Profile</a>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+             <ul>
+                <li><a href="#">Privacy Policy</a></li>
+                <li><a href="#">Terms of Service</a></li>
+                <li><a href="#">Contact Us</a></li>
+            </ul>
+            <p>© <span id="copyright-year"></span> Idigics. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+
+            // --- 1. Smooth Scrolling ---
+            try {
+                const smoothScrollLinks = document.querySelectorAll('a[href^="#"]');
+                smoothScrollLinks.forEach(link => {
+                    link.addEventListener('click', function (e) {
+                        const targetId = this.getAttribute('href');
+                        if (targetId && targetId.length > 1) {
+                            const targetElement = document.querySelector(targetId);
+                            if (targetElement) {
+                                e.preventDefault();
+                                const header = document.querySelector('header');
+                                const headerHeight = header ? header.offsetHeight : 0;
+                                const elementPosition = targetElement.getBoundingClientRect().top;
+                                const offsetPosition = elementPosition + window.pageYOffset - headerHeight - 20; 
+
+                                window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
+
+                                
+                                const mainNavList = document.getElementById('main-nav-list');
+                                const mobileMenuButton = document.querySelector('.mobile-menu-toggle');
+                                if (mainNavList && mobileMenuButton && mainNavList.classList.contains('mobile-nav-open')) {
+                                    mobileMenuButton.setAttribute('aria-expanded', 'false');
+                                    mainNavList.classList.remove('mobile-nav-open');
+                                }
+                            }
+                            
+                        } else if (targetId === '#') {
+                            e.preventDefault();
+                        }
+                    });
+                });
+            } catch (error) {
+                console.error("Smooth scrolling setup failed:", error);
+            }
+
+
+            // --- 2. Scroll Animations ---
+            try {
+                const animatedElements = document.querySelectorAll('.animate-on-scroll');
+                if (animatedElements.length > 0 && 'IntersectionObserver' in window) {
+                    const observer = new IntersectionObserver((entries, observerInstance) => {
+                        entries.forEach(entry => {
+                            if (entry.isIntersecting) {
+                                entry.target.classList.add('visible');
+                                observerInstance.unobserve(entry.target);
+                            }
+                        });
+                    }, {
+                        threshold: 0.1,
+                        
+                    });
+
+                    animatedElements.forEach(el => {
+                        observer.observe(el);
+                    });
+                } else if (animatedElements.length === 0) {
+                     // console.log("No elem found for scroll animati");
+                } else {
+                    console.warn('IntersectionObserver not supported. Animations disabled.');
+                    animatedElements.forEach(el => el.classList.add('visible'));
+                }
+            } catch (error) {
+                console.error("Intersection Observer setup failed:", error);
+                
+                 const animatedElements = document.querySelectorAll('.animate-on-scroll');
+                 animatedElements.forEach(el => el.classList.add('visible'));
+            }
+
+
+            // --- 3. Theme Toggle ---
+            try {
+                const themeToggleButton = document.getElementById('theme-toggle');
+                const body = document.body;
+                const themeIcon = themeToggleButton ? themeToggleButton.querySelector('.icon') : null;
+
+                if (themeToggleButton && themeIcon) {
+                    const applyTheme = (theme) => {
+                        if (theme === 'dark') {
+                            body.classList.add('dark-mode');
+                            themeIcon.textContent = '☀️';
+                            localStorage.setItem('theme', 'dark');
+                            themeToggleButton.title = "Switch to light mode";
+                        } else {
+                            body.classList.remove('dark-mode');
+                            themeIcon.textContent = '🌙';
+                            localStorage.setItem('theme', 'light');
+                            themeToggleButton.title = "Switch to dark mode";
+                        }
+                    };
+
+                    const savedTheme = localStorage.getItem('theme') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+                    applyTheme(savedTheme);
+
+                    themeToggleButton.addEventListener('click', () => {
+                        const newTheme = body.classList.contains('dark-mode') ? 'light' : 'dark';
+                        applyTheme(newTheme);
+                    });
+                } else {
+                   // console.warn("Theme togl bon or icn not fnd.");
+                }
+            } catch (error) {
+                 console.error("Theme toggle setup failed:", error);
+            }
+
+
+            // --- 4. Mobile Menu Toggle ---
+            try {
+                const mobileMenuButton = document.querySelector('.mobile-menu-toggle');
+                const mainNavList = document.getElementById('main-nav-list');
+
+                if (mobileMenuButton && mainNavList) {
+                    mobileMenuButton.addEventListener('click', () => {
+                        const isExpanded = mobileMenuButton.getAttribute('aria-expanded') === 'true';
+                        mobileMenuButton.setAttribute('aria-expanded', String(!isExpanded));
+                        mainNavList.classList.toggle('mobile-nav-open');
+                    });
+
+                    document.addEventListener('click', (event) => {
+                        const isClickInsideNav = mainNavList.contains(event.target);
+                        const isClickOnToggleButton = mobileMenuButton.contains(event.target);
+                        const isNavOpen = mainNavList.classList.contains('mobile-nav-open');
+
+                        if (!isClickInsideNav && !isClickOnToggleButton && isNavOpen) {
+                             mobileMenuButton.setAttribute('aria-expanded', 'false');
+                             mainNavList.classList.remove('mobile-nav-open');
+                        }
+                    });
+                 } else {
+                     // console.warn("Mob menu elmn nt fnd");
+                 }
+            } catch (error) {
+                 console.error("Mobile menu setup failed:", error);
+            }
+
+
+            // --- 5. Use Case Auto-Scrolling Slider ---
+            const wrapper = document.querySelector('.use-case-scroll-wrapper');
+            const slider = document.querySelector('.use-case-slider');
+
+            // Declare variables
+            let isHovering = false, isInteracting = false, isDragging = false;
+            let startX = 0, scrollLeftStart = 0, animationFrameId = null;
+            let autoScrollSpeed = 0.6;
+            let contentWidth = 0;
+            // let duplicated = false;
+            let duplicated = true;
+            let hasSufficientContentForScroll = false;
+            let listenersAdded = false; 
+            let originalContentHTML = '';
+            const dragThreshold = 10;
+
+            // Debounce Function
+            function debounce(func, wait) {
+                let timeout;
+                return function executedFunction(...args) {
+                    const later = () => { clearTimeout(timeout); func.apply(this, args); };
+                    clearTimeout(timeout); timeout = setTimeout(later, wait);
+                };
+            };
+
+            // --- Core Setup Function ---
+            function setupSlider() {
+                if (!wrapper || !slider || !slider.children.length) {
+                    console.log("Slider Setup: Aborted - Missing elements.");
+                    if (slider && slider.children.length > 0 && !slider.classList.contains('visible')) {
+                         slider.classList.add('visible');
+                    }
+                    return;
+                }
+
+                 // Store original content ONCE if not already don
+                if (originalContentHTML === '') {
+                    originalContentHTML = slider.innerHTML;
+                } else {
+                    
+                    if (duplicated) {
+                        // console.log("Sldr stp: Reset duplic contnt for resiz");
+                        slider.innerHTML = originalContentHTML;
+                        duplicated = false;
+                        slider.offsetHeight;
+                    }
+                }
+                
+                if (!slider.classList.contains('visible')) {
+                     // console.log("Sldr Setp: Frc visibility");
+                     slider.classList.add('visible');
+                }
+
+                const currentScrollWidth = slider.scrollWidth;
+                const wrapperWidth = wrapper.clientWidth;
+
+                hasSufficientContentForScroll = currentScrollWidth > wrapperWidth + 2;
+
+                if (hasSufficientContentForScroll) {
+                    slider.style.cursor = 'grab';
+
+                    if (!duplicated) {
+                         slider.innerHTML += originalContentHTML;
+                         duplicated = true;
+                         slider.offsetHeight; 
+                    }
+
+                    contentWidth = slider.scrollWidth / 2;
+
+                    addEventListeners(); 
+                    startAnimationLoop(); 
+
+                } else {
+                    slider.style.cursor = 'default';
+                    stopAnimationLoop();
+                }
+            }
+
+            // --- Animation Logic ---
+            function animationStep() {
+                if (isHovering || isInteracting || !hasSufficientContentForScroll || !wrapper || !slider) {
+                    animationFrameId = requestAnimationFrame(animationStep);
+                    return;
+                }
+                wrapper.scrollLeft += autoScrollSpeed;
+                if (autoScrollSpeed > 0 && wrapper.scrollLeft >= contentWidth) { wrapper.scrollLeft -= contentWidth; }
+                else if (autoScrollSpeed < 0 && wrapper.scrollLeft <= 0) { wrapper.scrollLeft += contentWidth; }
+                animationFrameId = requestAnimationFrame(animationStep);
+            }
+            function startAnimationLoop() {
+                if (!hasSufficientContentForScroll || animationFrameId) return;
+                stopAnimationLoop();
+                animationFrameId = requestAnimationFrame(animationStep);
+            }
+            function stopAnimationLoop() {
+                if (animationFrameId) { cancelAnimationFrame(animationFrameId); animationFrameId = null; }
+            }
+
+            // --- Interaction Handlers ---
+            function handleInteractionStart(e) {
+                 if (!hasSufficientContentForScroll) return;
+                 if (e.type === 'mousedown' && e.button !== 0) return;
+                 isInteracting = true; isDragging = false;
+                 slider.classList.add('active-grab');
+                 startX = (e.touches ? e.touches[0].clientX : e.clientX) - wrapper.getBoundingClientRect().left;
+                 scrollLeftStart = wrapper.scrollLeft; stopAnimationLoop();
+            }
+            function handleInteractionMove(e) {
+                if (!isInteracting || !hasSufficientContentForScroll) return;
+                const currentX = (e.touches ? e.touches[0].clientX : e.clientX) - wrapper.getBoundingClientRect().left;
+                const movedDistance = currentX - startX;
+                if (Math.abs(movedDistance) > dragThreshold || isDragging) {
+                     if (!isDragging) { isDragging = true; }
+                     if (e.cancelable) e.preventDefault();
+                     const walk = movedDistance * 1.8; 
+                     wrapper.scrollLeft = scrollLeftStart - walk;
+                }
+            }
+            function handleInteractionEnd() {
+                if (!isInteracting || !hasSufficientContentForScroll) return;
+                isInteracting = false; slider.classList.remove('active-grab');
+                 if (!isHovering) { startAnimationLoop(); } 
+                 setTimeout(() => { isDragging = false; }, 50);
+            }
+
+            // --- Event Listener Attachment Function ---
+            function addEventListeners() {
+                if (listenersAdded || !wrapper || !slider) return;
+
+                wrapper.addEventListener('mouseenter', () => { if (hasSufficientContentForScroll) { isHovering = true; stopAnimationLoop(); } });
+                wrapper.addEventListener('mouseleave', () => { if (hasSufficientContentForScroll) { isHovering = false; if(!isInteracting) startAnimationLoop(); } });
+
+                // Mouse events
+                slider.addEventListener('mousedown', handleInteractionStart);
+                window.addEventListener('mousemove', handleInteractionMove);
+                window.addEventListener('mouseup', handleInteractionEnd);   
+
+                // Touch events
+                slider.addEventListener('touchstart', handleInteractionStart, { passive: true });
+                slider.addEventListener('touchmove', handleInteractionMove, { passive: false });
+                window.addEventListener('touchend', handleInteractionEnd); 
+                window.addEventListener('touchcancel', handleInteractionEnd); 
+
+                slider.addEventListener('click', (e) => { if (isDragging) { e.preventDefault(); e.stopPropagation(); } }, true);
+
+                listenersAdded = true; 
+            }
+
+            // --- Initial Setup on Load & Resize ---
+            window.addEventListener('load', () => {
+                console.log("Slider: Window loaded, running initial setup.");
+                setupSlider();
+            });
+
+            const debouncedResizeHandler = debounce(() => {
+                 stopAnimationLoop(); 
+                 setupSlider();
+            }, 250);
+            window.addEventListener('resize', debouncedResizeHandler);
+
+            // --- 6. Update Copyright Year ---
+            try {
+                const copyrightYearSpan = document.getElementById('copyright-year');
+                if (copyrightYearSpan) {
+                    copyrightYearSpan.textContent = new Date().getFullYear();
+                }
+            } catch (error) {
+                 console.error("Copyright year update failed:", error);
+            }
+
+        }); 
+    </script>
+
+</body>
+</html>
