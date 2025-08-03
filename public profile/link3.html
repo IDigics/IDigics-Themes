@@ -1,0 +1,2105 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport"
+			content="width=device-width, initial-scale=1.0">
+		<title>iDigics Profile</title>
+		<link rel="preconnect"
+			href="https://fonts.googleapis.com">
+		<link rel="preconnect"
+			href="https://fonts.gstatic.com"
+			crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Inter:wght@400;500&display=swap"
+			rel="stylesheet">
+		<link rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+			integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+			crossorigin="anonymous"
+			referrerpolicy="no-referrer" />
+		<script type="text/javascript"
+			src="https://unpkg.com/qr-code-styling@1.6.0/lib/qr-code-styling.js"></script>
+		<style>
+			:root {
+			--primary-accent: #2c3e50;
+			--primary-accent-hover: #395068;
+			--background-color: #ffffff;
+			--page-background-tint: rgba(255, 255, 255, 0.92);
+			--subtle-background: #f8f9fa;
+			--text-color: #212529;
+			--secondary-text-color: #5a6268;
+			--border-color: #e1e5e9;
+			--input-background: #ffffff;
+			--shadow: 0 6px 18px rgba(0, 0, 0, 0.09);
+			--subtle-shadow: 0 3px 8px rgba(0, 0, 0, 0.06);
+			--border-radius: 6px;
+			--transition-speed: 0.25s;
+			--timeline-line-color: var(--border-color);
+			--timeline-icon-color: var(--primary-accent);
+			--timeline-icon-background: var(--background-color);
+			--blur-intensity: 5px;
+			--font-heading: 'Poppins',
+			sans-serif;
+			--font-body: 'Inter',
+			sans-serif;
+			}
+			/* Universal Reset and Box Sizing */
+			* {
+			margin: 0;
+			padding: 0;
+			box-sizing: border-box;
+			}
+			html {
+			scroll-behavior: smooth;
+			}
+			body {
+			font-family: var(--font-body);
+			background-color: var(--subtle-background);
+			background-size: cover;
+			background-position: center center;
+			background-repeat: no-repeat;
+			background-attachment: fixed;
+			color: var(--text-color);
+			line-height: 1.6;
+			display: flex;
+			justify-content: center;
+			align-items: flex-start;
+			padding: 40px 15px;
+			min-height: 100vh;
+			}
+			/* Main Container Styles */
+			.container {
+			background-color: var(--page-background-tint);
+			backdrop-filter: blur(var(--blur-intensity));
+			-webkit-backdrop-filter: blur(var(--blur-intensity));
+			border-radius: var(--border-radius);
+			box-shadow: var(--shadow);
+			padding: 40px;
+			max-width: 720px;
+			width: 100%;
+			text-align: center;
+			animation: fadeIn 0.8s ease-out forwards;
+			opacity: 0;
+			margin: 30px 0;
+			border: 1px solid rgba(0, 0, 0, 0.05);
+			position: relative;
+			z-index: 1;
+			}
+			/* Fade In Animation */
+			@keyframes fadeIn {
+			to {
+			opacity: 1;
+			}
+			}
+			/* Profile Header Styles */
+			.profile-header {
+			margin-bottom: 35px;
+			position: relative;
+			}
+			.profile-pic {
+			width: 150px;
+			height: 150px;
+			border-radius: 50%;
+			object-fit: cover;
+			margin-bottom: 18px;
+			border: 4px solid var(--background-color);
+			box-shadow: 0 0 0 1px var(--primary-accent),
+			var(--subtle-shadow);
+			transition: transform var(--transition-speed) ease;
+			}
+			.profile-pic:hover {
+			transform: scale(1.04);
+			}
+			.full-name {
+			font-family: var(--font-heading);
+			font-size: 2.3em;
+			font-weight: 600;
+			margin-bottom: 4px;
+			color: var(--text-color);
+			}
+			.occupation {
+			font-family: var(--font-body);
+			font-size: 1.1em;
+			color: var(--secondary-text-color);
+			margin-bottom: 25px;
+			font-weight: 400;
+			}
+			/* Header Buttons Styles */
+			.share-button {
+			position: absolute;
+			top: 0px;
+			right: 0px;
+			background: rgba(255, 255, 255, 0.7);
+			border: 1px solid var(--border-color);
+			color: var(--secondary-text-color);
+			border-radius: 50%;
+			width: 40px;
+			height: 40px;
+			font-size: 1.05em;
+			cursor: pointer;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			transition: all var(--transition-speed) ease;
+			backdrop-filter: blur(2px);
+			-webkit-backdrop-filter: blur(2px);
+			}
+			.share-button:hover {
+			background-color: var(--primary-accent);
+			color: white;
+			border-color: var(--primary-accent);
+			transform: scale(1.1);
+			}
+			.contact-exchange-button {
+			position: absolute;
+			top: 0px;
+			left: 0px;
+			background: rgba(255, 255, 255, 0.7);
+			border: 1px solid var(--border-color);
+			color: var(--secondary-text-color);
+			border-radius: 50%;
+			width: 40px;
+			height: 40px;
+			font-size: 1.05em;
+			cursor: pointer;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			transition: all var(--transition-speed) ease;
+			backdrop-filter: blur(2px);
+			-webkit-backdrop-filter: blur(2px);
+			z-index: 10;
+			box-shadow: var(--subtle-shadow);
+			}
+			.contact-exchange-button:hover {
+			background-color: var(--primary-accent);
+			color: white;
+			border-color: var(--primary-accent);
+			transform: scale(1.1);
+			box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+			}
+			/* Tab Buttons Container Styles */
+			.tab-buttons {
+			display: flex;
+			justify-content: center;
+			margin-bottom: 35px;
+			border-bottom: 1px solid var(--border-color);
+			}
+			/* Individual Tab Button Styles */
+			.tab-button {
+			padding: 10px 25px;
+			cursor: pointer;
+			border: none;
+			border-bottom: 3px solid transparent;
+			background-color: transparent;
+			font-family: var(--font-heading);
+			font-size: 1.05em;
+			font-weight: 500;
+			color: var(--secondary-text-color);
+			transition: color var(--transition-speed) ease,
+			border-color var(--transition-speed) ease;
+			margin-bottom: -1px;
+			position: relative;
+			}
+			.tab-button:hover:not(.active) {
+			color: var(--text-color);
+			}
+			.tab-button.active {
+			color: var(--primary-accent);
+			border-bottom-color: var(--primary-accent);
+			font-weight: 600;
+			}
+			.tab-button i {
+			margin-right: 7px;
+			}
+			.tab-content {
+			display: none;
+			animation: contentFadeIn 0.5s ease forwards;
+			text-align: left;
+			opacity: 0;
+			}
+			.tab-content.active {
+			display: block;
+			opacity: 1;
+			}
+			@keyframes contentFadeIn {
+			from {
+			opacity: 0;
+			transform: translateY(8px);
+			}
+			to {
+			opacity: 1;
+			transform: translateY(0);
+			}
+			}
+			/* Section Styles */
+			.section {
+			margin-bottom: 35px;
+			}
+			.section:last-child {
+			margin-bottom: 0;
+			}
+			/* Section Heading Styles */
+			.section h3 {
+			font-family: var(--font-heading);
+			font-size: 1.5em;
+			margin-bottom: 22px;
+			color: var(--text-color);
+			text-align: center;
+			position: relative;
+			padding-bottom: 12px;
+			font-weight: 600;
+			}
+			.section h3::after {
+			content: '';
+			position: absolute;
+			bottom: 0;
+			left: 50%;
+			transform: translateX(-50%);
+			width: 45px;
+			height: 2px;
+			background: var(--primary-accent);
+			border-radius: 1px;
+			opacity: 0.7;
+			}
+			/* Links List Styles */
+			.links-list {
+			list-style: none;
+			padding: 0;
+			margin: 0;
+			display: grid;
+			grid-template-columns: 1fr;
+			gap: 12px;
+			}
+			.link-item a,
+			.vcard-button,
+			.rating-action-button {
+			display: flex;
+			align-items: center;
+			padding: 14px 18px;
+			background-color: var(--input-background);
+			border: 1px solid var(--border-color);
+			border-radius: var(--border-radius);
+			color: var(--text-color);
+			text-decoration: none;
+			font-size: 1em;
+			font-weight: 500;
+			transition: all var(--transition-speed) ease;
+			width: 100%;
+			text-align: left;
+			cursor: pointer;
+			box-shadow: var(--subtle-shadow);
+			}
+			/* Icon Styles within Links/Buttons */
+			.link-item a i,
+			.vcard-button i,
+			.rating-action-button i {
+			margin-right: 15px;
+			font-size: 1.3em;
+			width: 28px;
+			text-align: center;
+			color: var(--primary-accent);
+			transition: color var(--transition-speed) ease;
+			}
+			.link-item a:hover,
+			.vcard-button:hover,
+			.rating-action-button:hover {
+			border-color: var(--primary-accent);
+			color: var(--primary-accent);
+			box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+			transform: translateY(-2px);
+			}
+			.link-item a:hover i {
+			color: var(--primary-accent);
+			}
+			/* VCard Button Specific Styles */
+			.vcard-button {
+			font-family: inherit;
+			margin-top: 18px;
+			font-weight: 600;
+			justify-content: center;
+			background: var(--primary-accent);
+			color: white;
+			border: none;
+			}
+			.vcard-button i {
+			color: white;
+			}
+			.vcard-button:hover {
+			background-color: var(--primary-accent-hover);
+			color: white;
+			box-shadow: 0 5px 15px rgba(44, 62, 80, 0.25);
+			border-color: var(--primary-accent-hover);
+			transform: translateY(-3px);
+			}
+			.vcard-button:hover i {
+			color: white;
+			}
+			/* About Section Content Styles */
+			.about-content {
+			text-align: left;
+			font-size: 1em;
+			color: var(--text-color);
+			background: var(--subtle-background);
+			padding: 20px;
+			border-radius: var(--border-radius);
+			border: 1px solid var(--border-color);
+			}
+			.about-content p {
+			margin-bottom: 12px;
+			line-height: 1.65;
+			}
+			.about-content p:last-child {
+			margin-bottom: 0;
+			}
+			/* Rating Section Styles */
+			.rating {
+			margin-bottom: 25px;
+			background: var(--subtle-background);
+			padding: 20px;
+			border-radius: var(--border-radius);
+			border: 1px solid var(--border-color);
+			text-align: center;
+			}
+			.rating h4 {
+			font-family: var(--font-heading);
+			margin-bottom: 12px;
+			font-size: 1.2em;
+			color: var(--primary-accent);
+			font-weight: 600;
+			}
+			.stars {
+			color: #f0ad4e;
+			font-size: 1.4em;
+			margin-bottom: 8px;
+			letter-spacing: 1.5px;
+			}
+			.stars i {
+			margin: 0 1px;
+			}
+			.rating span#globalRatingText {
+			font-size: 0.9em;
+			color: var(--secondary-text-color);
+			display: block;
+			margin-top: 6px;
+			margin-bottom: 18px;
+			}
+			/* Rating Action Buttons Container */
+			.rating-actions {
+			margin-top: 15px;
+			display: flex;
+			justify-content: center;
+			gap: 12px;
+			flex-wrap: wrap;
+			}
+			.rating-action-button {
+			background-color: transparent;
+			color: var(--primary-accent);
+			border: 1px solid var(--primary-accent);
+			width: auto;
+			flex-grow: 0;
+			justify-content: center;
+			}
+			.rating-action-button:hover {
+			background-color: var(--primary-accent);
+			color: var(--background-color);
+			border-color: var(--primary-accent);
+			}
+			.rating-action-button:hover i {
+			color: var(--background-color);
+			}
+			/* Detailed Ratings List Styles */
+			.rating-details ul {
+			list-style: none;
+			padding: 0;
+			text-align: left;
+			max-width: 380px;
+			margin: 12px auto 0 auto;
+			display: flex;
+			flex-direction: column;
+			gap: 8px;
+			}
+			.rating-details li {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			font-size: 0.95em;
+			padding: 8px 0;
+			border-bottom: 1px solid var(--border-color);
+			}
+			.rating-details li:last-child {
+			border-bottom: none;
+			}
+			.rating-details li span:first-child {
+			font-weight: 500;
+			color: var(--text-color);
+			}
+			.rating-details li .stars {
+			font-size: 0.9em;
+			margin-bottom: 0;
+			color: #f0ad4e;
+			}
+			/* Milestones Timeline Styles */
+			.milestones ul {
+			list-style: none;
+			padding: 0 0 0 18px;
+			margin: 25px 0 0 8px;
+			position: relative;
+			border-left: 2px solid var(--timeline-line-color);
+			}
+			.milestones li {
+			margin-bottom: 20px;
+			padding-left: 30px;
+			position: relative;
+			font-size: 0.95em;
+			line-height: 1.5;
+			}
+			.milestones li::before {
+			content: '';
+			position: absolute;
+			left: -8px;
+			top: 5px;
+			width: 12px;
+			height: 12px;
+			background-color: var(--timeline-icon-color);
+			border: 2px solid var(--timeline-icon-background);
+			border-radius: 50%;
+			box-shadow: 0 0 0 1px var(--timeline-line-color);
+			}
+			.milestones li:last-child {
+			margin-bottom: 0;
+			}
+			.milestones li .milestone-year {
+			display: block;
+			font-size: 0.9em;
+			color: var(--secondary-text-color);
+			margin-top: 4px;
+			font-style: italic;
+			}
+			/* Photo Gallery Styles */
+			.photo-gallery {
+			display: grid;
+			grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+			gap: 12px;
+			margin-top: 20px;
+			}
+			.photo-gallery img {
+			width: 100%;
+			height: 150px;
+			object-fit: cover;
+			border-radius: var(--border-radius);
+			cursor: pointer;
+			transition: all var(--transition-speed) ease;
+			border: 1px solid var(--border-color);
+			opacity: 0.85;
+			}
+			.photo-gallery img:hover {
+			transform: scale(1.06);
+			box-shadow: var(--subtle-shadow);
+			opacity: 1;
+			border-color: var(--primary-accent);
+			}
+			/* Video Gallery Grid Styles */
+			#videoGallery {
+			display: grid;
+			grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
+			gap: 25px;
+			margin-top: 20px;
+			}
+			.video-grid-item {
+			background-color: var(--background-color);
+			border: 1px solid var(--border-color);
+			border-radius: var(--border-radius);
+			overflow: hidden;
+			box-shadow: var(--subtle-shadow);
+			transition: all var(--transition-speed) ease;
+			cursor: pointer;
+			position: relative;
+			}
+			.video-grid-item:hover {
+			transform: translateY(-3px);
+			box-shadow: var(--shadow);
+			border-color: var(--primary-accent);
+			}
+			.video-grid-item img.video-thumbnail {
+			display: block;
+			width: 100%;
+			height: auto;
+			aspect-ratio: 16 / 9;
+			object-fit: cover;
+			border-bottom: 1px solid var(--border-color);
+			}
+			.video-grid-title {
+			font-family: var(--font-body);
+			font-size: 0.9em;
+			font-weight: 500;
+			color: var(--text-color);
+			padding: 10px 15px;
+			text-align: center;
+			line-height: 1.4;
+			white-space: nowrap;
+			overflow: hidden;
+			text-overflow: ellipsis;
+			}
+			.play-icon-overlay {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: calc(100% - 45px);
+			background-color: rgba(44, 62, 80, 0.5);
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			font-size: 3em;
+			color: rgba(255, 255, 255, 0.85);
+			opacity: 0;
+			transition: opacity var(--transition-speed) ease;
+			pointer-events: none;
+			}
+			.video-grid-item:hover .play-icon-overlay {
+			opacity: 1;
+			}
+			/* Video Modal Styles */
+			#video-modal .modal-content {
+			background-color: #000;
+			padding: 0;
+			max-width: 90vw;
+			max-height: 85vh;
+			border: none;
+			box-shadow: none;
+			overflow: hidden;
+			}
+			#video-player-wrapper {
+			position: relative;
+			padding-bottom: 56.25%; 
+			height: 0;
+			width: 100%;
+			}
+			#video-player-wrapper iframe {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			border: 0;
+			}
+			/* General Modal Styles */
+			.modal {
+			display: flex;
+			position: fixed;
+			z-index: 1000;
+			left: 0;
+			top: 0;
+			width: 100%;
+			height: 100%;
+			/* overflow: auto; */
+			background-color: rgba(30, 30, 30, 0.75);
+			backdrop-filter: blur(var(--blur-intensity));
+			-webkit-backdrop-filter: blur(var(--blur-intensity));
+			/* animation: modalFadeIn 0.3s ease; */
+			align-items: center;
+			justify-content: center;
+			padding: 20px;
+			opacity: 0;
+			visibility: hidden;
+			transition: opacity 0.3s ease, visibility 0s linear 0.3s;
+			}
+			.modal.is-open {
+			opacity: 1;
+			visibility: visible;
+			transition: opacity 0.3s ease, visibility 0s linear 0s; 
+			}
+			/* Modal Content Box Styles */
+			.modal-content {
+			background-color: var(--background-color);
+			/* margin: 0 auto; */
+			padding: 30px;
+			border: 1px solid var(--border-color);
+			width: 90%;
+			max-width: 480px;
+			border-radius: var(--border-radius);
+			position: relative;
+			box-shadow: 0 10px 35px rgba(0, 0, 0, 0.2);
+			text-align: center;
+			/* animation: modalPopIn 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards; */
+			max-height: calc(100vh - 60px);
+			overflow-y: auto;
+			transform: scale(0.95);
+			opacity: 0;
+			transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0.3s ease;
+			}
+			.modal.is-open .modal-content {
+			transform: scale(1);
+			opacity: 1;
+			}
+			body.modal-open {
+			overflow: hidden;
+			}
+			/* Share Modal Specific Content Styles */
+			#share-modal .modal-content {
+			max-width: 380px;
+			}
+			#share-modal h3 {
+			margin-bottom: 25px;
+			color: var(--primary-accent);
+			font-family: var(--font-heading);
+			font-size: 1.4em;
+			font-weight: 600;
+			}
+			.share-options {
+			margin-bottom: 25px;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			gap: 14px;
+			}
+			.share-options a {
+			display: inline-flex;
+			align-items: center;
+			justify-content: center;
+			width: 48px;
+			height: 48px;
+			border-radius: 50%;
+			color: var(--primary-accent);
+			background-color: var(--subtle-background);
+			border: 1px solid var(--border-color);
+			text-decoration: none;
+			font-size: 1.5em;
+			transition: all var(--transition-speed) ease;
+			}
+			.share-options a:hover {
+			transform: translateY(-3px);
+			border-color: var(--primary-accent);
+			background-color: var(--primary-accent);
+			color: var(--background-color);
+			box-shadow: 0 4px 10px rgba(44, 62, 80, 0.2);
+			}
+			/* QR Code Container Styles */
+			#qrcode {
+			margin: 20px auto;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			width: 170px;   
+			height: 170px;
+			border: 1px solid var(--border-color);
+			background-color: white;
+			border-radius: var(--border-radius);
+			box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.05);
+			box-sizing: border-box;
+			overflow: hidden; 
+			}
+			/* Ensure Generated QR Fits Container */
+			#qrcode>svg, 
+			#qrcode>canvas, 
+			#qrcode>div {
+			display: block; 
+			max-width: 100%; 
+			max-height: 100%;
+			width: auto; 
+			height: auto; 
+			}
+			/* Download QR Button Styles */
+			#download-qr {
+			background-color: var(--primary-accent);
+			color: var(--background-color);
+			border: none;
+			padding: 10px 20px;
+			border-radius: var(--border-radius);
+			cursor: pointer;
+			font-family: var(--font-heading);
+			font-size: 0.95em;
+			font-weight: 500;
+			transition: all var(--transition-speed) ease;
+			margin-top: 12px;
+			text-transform: uppercase;
+			letter-spacing: 0.5px;
+			display: inline-flex;
+			align-items: center;
+			gap: 8px;
+			}
+			#download-qr:hover {
+			background-color: var(--primary-accent-hover);
+			transform: scale(1.03);
+			box-shadow: 0 4px 12px rgba(44, 62, 80, 0.2);
+			}
+			#download-qr i {
+			color: inherit;
+			}
+			#download-qr:disabled {
+			background-color: var(--secondary-text-color);
+			color: #ccc;
+			cursor: not-allowed;
+			transform: none;
+			box-shadow: none;
+			opacity: 0.7;
+			}
+			/* Image Modal Specific Styles */
+			#image-modal .modal-content {
+			max-width: 85vw;
+			width: auto;
+			padding: 0;
+			background: transparent;
+			border: none;
+			box-shadow: none;
+			margin: auto;
+			overflow: visible;
+			display: inline-block;
+			animation: none;
+			opacity: 1;
+			transform: none;
+			}
+			#modal-image {
+			display: block;
+			max-width: 100%;
+			max-height: 80vh;
+			margin: 0 auto;
+			border-radius: var(--border-radius);
+			border: 3px solid rgba(255, 255, 255, 0.85);
+			box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+			}
+			/* Modal Close Button Styles */
+			.close-button {
+			color: rgba(255, 255, 255, 0.8);
+			position: fixed;
+			top: 15px;
+			right: 25px;
+			font-size: 40px;
+			font-weight: 300;
+			transition: color var(--transition-speed) ease,
+			transform var(--transition-speed) ease;
+			cursor: pointer;
+			z-index: 1010;
+			line-height: 1;
+			text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);
+			background: none;
+			border: none;
+			padding: 5px;
+			}
+			#share-modal .close-button {
+			position: absolute;
+			top: 10px;
+			right: 10px;
+			font-size: 24px;
+			color: var(--secondary-text-color);
+			text-shadow: none;
+			background: transparent;
+			border-radius: 50%;
+			width: 30px;
+			height: 30px;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			line-height: 1;
+			border: none; 
+			padding: 0;
+			}
+			#share-modal .close-button:hover {
+			background: #eee;
+			color: var(--primary-accent);
+			}
+			.close-button:hover {
+			color: #ffffff;
+			transform: scale(1.15);
+			}
+			/* Responsive Styles */
+			/* Tablet Styles */
+			@media (max-width: 768px) {
+			body {
+			padding: 30px 10px;
+			}
+			.container {
+			padding: 30px;
+			max-width: 95%;
+			margin-top: 20px;
+			}
+			.profile-pic {
+			width: 130px;
+			height: 130px;
+			}
+			.full-name {
+			font-size: 2em;
+			}
+			.occupation {
+			font-size: 1.05em;
+			}
+			/* ----------------------------------------------------------------------------------------------------------- */
+			.contact-exchange-button,
+			.share-button {
+			width: 35px;
+			height: 35px;
+			font-size: 0.9em;
+			top: 2px; 
+			}
+			.contact-exchange-button { left: 2px; }
+			.share-button { right: 2px; }
+			/* ----------------------------------------------------------------------------------------------------------- */
+			.tab-button {
+			padding: 9px 18px;
+			font-size: 1em;
+			}
+			.section h3 {
+			font-size: 1.35em;
+			}
+			.link-item a,
+			.vcard-button,
+			.rating-action-button {
+			padding: 12px 16px;
+			font-size: 0.95em;
+			}
+			.link-item a i,
+			.vcard-button i,
+			.rating-action-button i {
+			font-size: 1.2em;
+			margin-right: 12px;
+			}
+			.modal-content {
+			max-width: 90%;
+			padding: 25px;
+			}
+			#share-modal .modal-content {
+			padding: 25px;
+			}
+			#image-modal .modal-content {
+			padding: 0;
+			max-width: 85vw;
+			}
+			#video-modal .modal-content {
+			padding: 0;
+			max-width: 90vw;
+			}
+			.photo-gallery {
+			grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+			gap: 10px;
+			}
+			.photo-gallery img {
+			height: 150px;
+			}
+			.milestones ul {
+			padding-left: 15px;
+			margin-left: 6px;
+			}
+			.milestones li {
+			padding-left: 28px;
+			margin-bottom: 18px;
+			font-size: 0.9em;
+			}
+			.milestones li::before {
+			left: -7px;
+			width: 11px;
+			height: 11px;
+			}
+			.rating-action-button {
+			padding: 8px 14px;
+			font-size: 0.85em;
+			}
+			#videoGallery {
+			grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+			gap: 20px;
+			}
+			.play-icon-overlay {
+			font-size: 2.5em;
+			}
+			}
+			/* Mobile Styles */
+			@media (max-width: 480px) {
+			body {
+			padding: 15px 5px;
+			}
+			:root {
+			--blur-intensity: 3px;
+			}
+			.container {
+			padding: 20px;
+			backdrop-filter: blur(var(--blur-intensity));
+			-webkit-backdrop-filter: blur(var(--blur-intensity));
+			}
+			.profile-pic {
+			width: 110px;
+			height: 110px;
+			margin-bottom: 12px;
+			}
+			.full-name {
+			font-size: 1.7em;
+			}
+			.occupation {
+			font-size: 0.95em;
+			}
+			/* ---------------------------------------------------------------------------------------------------------------------------------------- */
+			.contact-exchange-button,
+			.share-button {
+			width: 32px;
+			height: 32px;
+			font-size: 0.85em;
+			top: 1px; 
+			}
+			.contact-exchange-button { left: 1px; }
+			.share-button { right: 1px; } 
+			/* ---------------------------------------------------------------------------------------------------------------------------------------- */
+			.tab-buttons {
+			flex-direction: column;
+			border-bottom: none;
+			align-items: stretch;
+			margin-bottom: 30px;
+			}
+			.tab-button {
+			text-align: center;
+			border-bottom: 1px solid var(--border-color);
+			margin-bottom: 0;
+			border-radius: 0;
+			padding: 10px 12px;
+			font-size: 0.95em;
+			}
+			.tab-button:last-child {
+			border-bottom: none;
+			}
+			.tab-button.active {
+			border-bottom: 1px solid var(--border-color);
+			background-color: var(--subtle-background);
+			font-weight: 600;
+			}
+			.section h3 {
+			font-size: 1.25em;
+			margin-bottom: 18px;
+			padding-bottom: 10px;
+			}
+			.section h3::after {
+			width: 40px;
+			}
+			.link-item a,
+			.vcard-button,
+			.rating-action-button {
+			padding: 10px 14px;
+			font-size: 0.9em;
+			}
+			.link-item a i,
+			.vcard-button i,
+			.rating-action-button i {
+			font-size: 1.1em;
+			margin-right: 10px;
+			width: 24px;
+			}
+			.modal-content {
+			width: 95%;
+			padding: 20px;
+			}
+			#share-modal .modal-content {
+			padding: 20px;
+			}
+			#image-modal .modal-content {
+			padding: 0;
+			max-width: 95vw;
+			}
+			#video-modal .modal-content {
+			padding: 0;
+			max-width: 95vw;
+			}
+			#share-modal h3 {
+			font-size: 1.3em;
+			margin-bottom: 20px;
+			}
+			.share-options a {
+			width: 42px;
+			height: 42px;
+			font-size: 1.4em;
+			margin: 0 5px;
+			}
+			#qrcode {
+			width: 140px;
+			height: 140px;
+			}
+			#download-qr {
+			padding: 9px 18px;
+			font-size: 0.9em;
+			}
+			.milestones ul {
+			padding-left: 10px;
+			margin-left: 5px;
+			}
+			.milestones li {
+			padding-left: 22px;
+			margin-bottom: 15px;
+			font-size: 0.85em;
+			}
+			.milestones li::before {
+			left: -6px;
+			width: 9px;
+			height: 9px;
+			}
+			.rating-details li {
+			font-size: 0.88em;
+			padding: 6px 0;
+			}
+			.photo-gallery {
+			grid-template-columns: repeat(auto-fill, minmax(105px, 1fr));
+			gap: 8px;
+			}
+			.photo-gallery img {
+			height: 105px;
+			}
+			.rating-actions {
+			flex-direction: column;
+			gap: 8px;
+			align-items: stretch;
+			}
+			.rating-action-button {
+			width: 100%;
+			justify-content: center;
+			}
+			#videoGallery {
+			grid-template-columns: 1fr;
+			gap: 15px;
+			}
+			.video-grid-title {
+			font-size: 0.85em;
+			padding: 8px 12px;
+			}
+			.play-icon-overlay {
+			font-size: 2.2em;
+			height: calc(100% - 40px);
+			}
+			}
+		</style>
+	</head>
+	<body>
+		<!-- ! Main Page Container -->
+		<div class="container">
+			<!-- ! Profile Header Section -->
+			<div class="profile-header">
+				<img src=""
+					alt="Profile Picture"
+					class="profile-pic"
+					id="profilePic">
+				<h1 class="full-name"
+					id="fullName"></h1>
+				<p class="occupation"
+					id="occupation"></p>
+				<!-- ------------------------------------------------------------------------------------------------- -->
+				<button class="contact-exchange-button"
+					id="openContactExchangeModal"
+					aria-label="Share Contact Info"  
+					title="Share Contact Info">
+					<i class="fas fa-user-plus"></i> 
+				</button>
+				<!-- ---------------------------------------------------------------------------------------------------- -->
+				<button class="share-button"
+					id="openShareModal"
+					aria-label="Share Profile">
+				<i class="fas fa-share-alt"></i>
+				</button>
+			</div>
+			<!-- ! Tab Navigation Buttons -->
+			<div class="tab-buttons">
+				<button class="tab-button active"
+					data-tab="links">
+				<i class="fas fa-link"></i>Links
+				</button>
+				<button class="tab-button"
+					data-tab="about">
+				<i class="fas fa-user"></i>About
+				</button>
+			</div>
+			<!-- ! Links Tab Content -->
+			<div class="tab-content active"
+				id="links">
+				<div class="section">
+					<h3>Connect With Me</h3>
+					<ul class="links-list"
+						id="socialLinksList">
+						<!-- Social links added by JS -->
+					</ul>
+				</div>
+				<div class="section">
+					<h3>Get In Touch</h3>
+					<ul class="links-list"
+						id="contactLinksList">
+						<!-- Contact links added by JS -->
+					</ul>
+				</div>
+				<div class="section"
+					id="vcardSection">
+					<button class="vcard-button"
+						id="downloadVcard">
+					<i class="fas fa-address-card"></i>
+					Save Contact (vCard)
+					</button>
+				</div>
+			</div>
+			<!-- ! About Tab Content -->
+			<div class="tab-content"
+				id="about">
+				<!-- Ratings Section -->
+				<div class="section"
+					id="ratingsSection">
+					<h3>Profile Overview</h3>
+					<div class="rating global-rating"
+						id="globalRatingContainer">
+						<h4>Global Rating</h4>
+						<div class="stars"
+							id="globalStars"></div>
+						<span id="globalRatingText"></span>
+						<div class="rating-actions">
+							<button class="rating-action-button"
+								id="giveRatingBtn">
+							<i class="fas fa-star"></i> Give Rating
+							</button>
+							<button class="rating-action-button"
+								id="reserveCouponBtn">
+							<i class="fas fa-ticket-alt"></i> Reserve Coupon
+							</button>
+						</div>
+					</div>
+					<div class="rating detailed-rating"
+						id="detailedRatingContainer">
+						<h4>Detailed Rating</h4>
+						<ul class="rating-details"
+							id="detailedRatingsList">
+							<!-- Detailed ratings added by JS -->
+						</ul>
+					</div>
+				</div>
+				<!-- Bio Section -->
+				<div class="section bio"
+					id="bioSection">
+					<h3>Bio</h3>
+					<div class="about-content"
+						id="bioContent">
+						<!-- Bio added by JS -->
+					</div>
+				</div>
+				<!-- Milestones Section -->
+				<div class="section milestones"
+					id="milestonesSection">
+					<h3>Milestones</h3>
+					<ul id="milestonesList">
+						<!-- Milestones added by JS -->
+					</ul>
+				</div>
+				<!-- Photos Section -->
+				<div class="section"
+					id="photosSection">
+					<h3>Photos</h3>
+					<div class="photo-gallery"
+						id="photoGallery">
+						<!-- Photos added by JS -->
+					</div>
+				</div>
+				<!-- Videos Section -->
+				<div class="section"
+					id="videosSection">
+					<h3>Videos</h3>
+					<div class="video-gallery"
+						id="videoGallery">
+						<!-- Videos added by JS -->
+					</div>
+				</div>
+			</div>
+			<!-- End About Tab -->
+		</div>
+		<!-- ! End Main Container -->
+
+		<!-- ! Share Modal -->
+		<div id="share-modal"
+			class="modal">
+			<div class="modal-content">
+				<span class="close-button"
+					id="closeShareModal"
+					data-modal-id="share-modal">×</span>
+				<h3>Share Profile</h3>
+				<div class="share-options">
+					<a href="#"
+						id="shareFacebook"
+						class="facebook"
+						target="_blank"
+						title="Share on Facebook"><i class="fab fa-facebook-f"></i></a>
+					<a href="#"
+						id="shareTwitter"
+						class="twitter"
+						target="_blank"
+						title="Share on Twitter"><i class="fab fa-twitter"></i></a>
+				</div>
+				<!-- QR Code Placeholder -->
+				<div id="qrcode">
+					<p style="font-size: small; color: grey; text-align: center; margin-top: 60px;">
+						Generating QR...
+					</p>
+				</div>
+				<!-- Download Button -->
+				<button id="download-qr"
+					disabled>
+				<i class="fas fa-download"></i> Download QR
+				</button>
+			</div>
+		</div>
+		<!-- ! Image Viewer Modal -->
+		<div id="image-modal"
+			class="modal">
+			<span class="close-button"
+				id="closeImageModal"
+				data-modal-id="image-modal">×</span>
+			<div class="modal-content">
+				<img id="modal-image"
+					src=""
+					alt="Enlarged Photo">
+			</div>
+		</div>
+		<!-- ! Video Player Modal -->
+		<div id="video-modal"
+			class="modal">
+			<span class="close-button"
+				data-modal-id="video-modal">×</span>
+			<div class="modal-content">
+				<div id="video-player-wrapper">
+					<iframe id="video-iframe"
+						src=""
+						title="Video Player"
+						frameborder="0"
+						allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+						allowfullscreen>
+					</iframe>
+				</div>
+			</div>
+		</div>
+
+
+
+        <script>
+			document.addEventListener('DOMContentLoaded', function() {
+			
+			    // Log script start
+			    console.log("DOM Loaded - Script Execution Starting (Using QRCodeStyling.js)...");
+			
+			    // --- Configuration Object ---
+			    const profileConfig = {
+			        pageBackgroundImageUrl: "./bg2.jpg",
+			        blurIntensity: "0px",
+			        firstName: "John",
+			        lastName: "Doe",
+			        occupation: "Mechanical Consultant",
+			        profilePicUrl: "./batman.png",
+			        websiteUrl: window.location.href,
+			        socialLinks: [
+			            { name: "LinkedIn", url: "#", icon: "fab fa-linkedin-in" },
+			            { name: "Blog", url: "#", icon: "fas fa-blog" },
+			            { name: "Facebook", url: "#", icon: "fa-brands fa-facebook-f" },
+			            { name: "Website", url: "#", icon: "fas fa-building" }
+			        ],
+			        contactLinks: [ //tel-wa-mailto-map-sms (switch case)
+			            { type: 'tel', value: "+21620000000", text: "Office Phone", icon: "fas fa-phone" },
+			            { type: 'wa', value: "+21620000000", text: "Whatsapp", icon: "fa-brands fa-whatsapp" },
+			            { type: 'mailto', value: "john.doe@idigics.com", text: "Business Email", icon: "fas fa-envelope" },
+			            { type: 'map', value: "Technopole de Sfax, cite Ons", text: "Office Location", icon: "fas fa-map-marker-alt" }
+			        ],
+			        vCardInfo: {
+			            organization: "Great Company",
+			            address: "Technopole de Sfax, cite Ons",
+			            note: "iDigics.com is the Tunisian ultimate business card powered by NFC and QR codes",
+			        },
+			        globalRating: {
+			            score: 3,
+			            reviews: 112
+			        },
+			        detailedRatings: [
+			             { category: "Quality Of Work", score: 1 },
+			             { category: "Cost Effectiveness", score: 2 },
+			             { category: "Timeliness", score: 3.5 },
+			             { category: "Communication", score: 4.5 },
+			             { category: "Agility", score: 5 }
+			        ],
+			        bio: [
+			            'Lorem ipsum dolor sit amet,consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum c.'
+			        ],
+			        milestones: [
+			             { text: "Founded sdfsdf", year: "2015" },
+			             { text: "MBA, sdfsdf", year: "2012" },
+			             { text: "MBA, zazrfy", year: "2012" },
+			             { text: "zrfzrzr", year: "Ongoing" },
+			             { text: "qZERFEQREF", year: "2021" }
+			        ],
+			        photoGallery: [
+			             { thumb: "./hero_pic.png", full: "./hero_pic.png", alt: "Photo 1 Description" },
+			             { thumb: "./hero_pic1.jpg", full: "./hero_pic1.jpg", alt: "Photo 2 Description" },
+			             { thumb: "./hero_pic1.jpg", full: "./hero_pic1.jpg", alt: "Photo 2 Description" },
+			             { thumb: "./hero_pic1.jpg", full: "./hero_pic1.jpg", alt: "Photo 2 Description" },
+			             { thumb: "./hero_pic1.jpg", full: "./hero_pic1.jpg", alt: "Photo 2 Description" },
+			             { thumb: "./hero_pic1.jpg", full: "./hero_pic1.jpg", alt: "Photo 2 Description" },
+			             { thumb: "./hero_pic1.jpg", full: "./hero_pic1.jpg", alt: "Photo 2 Description" },
+			             { thumb: "./hero_pic1.jpg", full: "./hero_pic1.jpg", alt: "Photo 2 Description" },
+			             { thumb: "./new_header2_58d165fe-2cab-4c4e-9c28-68e423f16c16.webp", full: "./new_header2_58d165fe-2cab-4c4e-9c28-68e423f16c16.webp", alt: "Photo 4 Description" }
+			        ],
+			        videoGallery: [
+			             { youtubeId: "mfyRW9x9rFw", title: "Video 1 Title - alkahf" },
+			             { youtubeId: "mfyRW9x9rFw", title: "Video 1 Title - alkahf" },
+			             { youtubeId: "mfyRW9x9rFw", title: "Video 1 Title - alkahf" },
+			             { youtubeId: "mfyRW9x9rFw", title: "Video 1 Title - alkahf" },
+			             { youtubeId: "b6Fl15dIGgg", title: "Video 2 Title - da7y7" },
+			             { youtubeId: "zfBve7gvF2Y", title: "Video 2 Title - da7ou7" }
+			        ],
+			        showGiveRatingButton: true,
+			        showReserveCouponButton: true,
+			        sectionsVisibility: {
+			            ratings: true, bio: true, milestones: true, photos: true,
+			            videos: true, vcard: true, detailedRatings: true,
+			        }
+			    };
+			
+			    // --- State Variables ---
+			    let logoBase64 = null; // Holds Base64 data for the logo
+			    let styledQrCodeInstance = null; // Holds the QRCodeStyling instance
+			    const logoPath = './logo.png';
+			
+			    // --- Apply Background/Blur Styles ---
+			    function applyConfigStyles() {
+			        const root = document.documentElement;
+			        const body = document.body;
+			        if (profileConfig.pageBackgroundImageUrl) {
+			            body.style.backgroundImage = `url('${profileConfig.pageBackgroundImageUrl}')`;
+			        } else {
+			            body.style.backgroundImage = 'none';
+			            body.style.backgroundColor = 'var(--subtle-background)';
+			        }
+			        if (profileConfig.blurIntensity) {
+			            root.style.setProperty('--blur-intensity', profileConfig.blurIntensity);
+			        }
+			    }
+			    applyConfigStyles(); 
+			
+			    // --- DOM Element References ---
+			    const pageTitle = document.querySelector('title');
+			    const profilePic = document.getElementById('profilePic');
+			    const fullName = document.getElementById('fullName');
+			    const occupation = document.getElementById('occupation');
+			    const socialLinksList = document.getElementById('socialLinksList');
+			    const contactLinksList = document.getElementById('contactLinksList');
+			    const vcardSection = document.getElementById('vcardSection');
+			    const downloadVcardBtn = document.getElementById('downloadVcard');
+			    const globalRatingContainer = document.getElementById('globalRatingContainer');
+			    const globalStars = document.getElementById('globalStars');
+			    const globalRatingText = document.getElementById('globalRatingText');
+			    const detailedRatingsList = document.getElementById('detailedRatingsList');
+			    const detailedRatingContainer = document.getElementById('detailedRatingContainer');
+			    const bioContent = document.getElementById('bioContent');
+			    const milestonesList = document.getElementById('milestonesList');
+			    const photoGallery = document.getElementById('photoGallery');
+			    const videoGallery = document.getElementById('videoGallery');
+			    const ratingsSection = document.getElementById('ratingsSection');
+			    const bioSection = document.getElementById('bioSection');
+			    const milestonesSection = document.getElementById('milestonesSection');
+			    const photosSection = document.getElementById('photosSection');
+			    const videosSection = document.getElementById('videosSection');
+			    const tabButtons = document.querySelectorAll('.tab-button');
+			    const tabContents = document.querySelectorAll('.tab-content');
+			    const openShareModalBtn = document.getElementById('openShareModal');
+			    const shareModal = document.getElementById('share-modal');
+			    const imageModal = document.getElementById('image-modal');
+			    const videoModal = document.getElementById('video-modal');
+			    const modalImage = document.getElementById('modal-image');
+			    const videoIframe = document.getElementById('video-iframe');
+			    const qrcodeContainer = document.getElementById('qrcode');
+			    const downloadQRBtn = document.getElementById('download-qr');
+			    const shareFacebookBtn = document.getElementById('shareFacebook');
+			    const shareTwitterBtn = document.getElementById('shareTwitter');
+			    const allModals = document.querySelectorAll('.modal');
+			    const allCloseButtons = document.querySelectorAll('.close-button[data-modal-id]');
+			    const giveRatingBtn = document.getElementById('giveRatingBtn');
+			    const reserveCouponBtn = document.getElementById('reserveCouponBtn');
+			    const ratingActionsContainer = document.querySelector('.rating-actions');
+			    const openContactExchangeModalBtn = document.getElementById('openContactExchangeModal');
+			
+			
+			    // --- Helper Functions ---
+			    // Function to generate star rating HTML
+			    function generateStars(score, maxStars = 5) {
+			        let starsHTML = '';
+			        const fullStars = Math.floor(score);
+			        const halfStarThreshold = 0.4;
+			        const halfStar = (score % 1) >= halfStarThreshold;
+			        const emptyStars = maxStars - fullStars - (halfStar ? 1 : 0);
+			        for (let i = 0; i < fullStars; i++) {
+			            starsHTML += '<i class="fa-solid fa-star"></i>';
+			        }
+			        if (halfStar) {
+			            starsHTML += '<i class="fa-solid fa-star-half-stroke"></i>';
+			        }
+			        for (let i = 0; i < emptyStars; i++) {
+			            starsHTML += '<i class="fa-regular fa-star"></i>';
+			        }
+			        if (starsHTML.length === 0 && score === 0 && maxStars > 0) {
+			            for (let i = 0; i < maxStars; i++) {
+			                starsHTML += '<i class="fa-regular fa-star"></i>';
+			            }
+			        }
+			        return starsHTML;
+			    }
+			
+			    // Function to set element visibility based on configuration
+			    function setVisibility(element, isVisible) {
+			        if (!element) {
+			            return;
+			        }
+			        if (isVisible) {
+			            let displayStyle = 'block';
+			            if (element.classList.contains('rating-actions') || element.classList.contains('modal') || element.classList.contains('share-options')) {
+			                displayStyle = 'flex';
+			            } else if (element.id === 'videoGallery' || element.classList.contains('photo-gallery') || (element.tagName === 'UL' && element.classList.contains('links-list'))) {
+			                displayStyle = 'grid';
+			            } else if (element.tagName === 'BUTTON' || element.tagName === 'A') {
+			                displayStyle = (element.parentElement && window.getComputedStyle(element.parentElement).display === 'flex') ? 'inline-flex' : 'inline-block';
+			            }
+			            element.style.display = displayStyle;
+			        } else {
+			            element.style.display = 'none';
+			        }
+			    }
+
+			    // Click handler for image gallery thumbnails
+			    function handleImageClick(event) {
+			        const img = event.target;
+			        const fullSrc = img.dataset.fullsrc || img.src;
+			        if (!fullSrc || !imageModal || !modalImage) {
+			            return;
+			        }
+			        modalImage.src = fullSrc;
+			        modalImage.alt = img.alt || "Enlarged gallery image";
+			        openModal(imageModal);
+			    }
+			
+			    // Click handler for video gallery items
+			    function handleVideoClick(event) {
+			        const gridItem = event.currentTarget;
+			        const youtubeId = gridItem.dataset.youtubeId;
+			        const title = gridItem.dataset.videoTitle;
+			        if (!youtubeId || !videoModal || !videoIframe) {
+			            console.error("Video click error: Missing Video ID or modal elements.");
+			            return;
+			        }
+			        const embedUrl = `https://www.youtube-nocookie.com/embed/${youtubeId}?autoplay=1&modestbranding=1&rel=0`;
+			        videoIframe.src = embedUrl;
+			        videoIframe.title = title || "Video Player";
+			        openModal(videoModal);
+			    }
+
+			    // Function to open a modal
+			    function openModal(modalElement) {
+			        if (!modalElement) {
+			            return;
+			        }
+			        console.log(`Opening modal: #${modalElement.id}`);
+			        modalElement.classList.add('is-open');
+			        document.body.classList.add('modal-open');
+			
+			    }
+			
+			     // --- MODIFIED Modal Close Logic ---
+			    function closeModal(modalElement) {
+			         if (!modalElement) {
+			             return;
+			         }
+			         console.log(`Closing modal: #${modalElement.id}`);
+			         modalElement.classList.remove('is-open'); 
+			        setTimeout(() => { 
+			            const anyModalOpen = Array.from(allModals).some(m => m.classList.contains('is-open'));
+			
+			         if (!anyModalOpen) {
+			                document.body.classList.remove('modal-open');
+			             console.log("Restored body overflow.");
+			         } else {
+			             console.log("Another modal still open, keeping overflow hidden.");
+			             }
+			         },50);
+
+			         // Reset specific modal content
+			         if (modalElement.id === 'image-modal' && modalImage) {
+			             modalImage.src = "";
+			             modalImage.alt = "";
+			         }
+			         if (modalElement.id === 'video-modal' && videoIframe) {
+			             videoIframe.src = "";
+			             videoIframe.title = "";
+			         }
+			         // Reset QR code state when share modal closes
+			         if (modalElement.id === 'share-modal') {
+			             console.log("Resetting QR state on share modal close.");
+			             styledQrCodeInstance = null;
+			             if (qrcodeContainer) {
+			                 qrcodeContainer.innerHTML = '<p style="font-size: small; color: grey; text-align: center; margin-top: 60px;">Generating QR...</p>'; // Reset display
+			             }
+			             if (downloadQRBtn) {
+			                 downloadQRBtn.disabled = true;
+			             }
+			         }
+			    }
+			
+			    // Setup social share links
+			    function setupShareLinks(url) {
+			        if (!url || !shareFacebookBtn || !shareTwitterBtn) {
+			            console.warn("Share links setup failed: Missing URL or buttons.");
+			            return;
+			        }
+			        const encodedUrl = encodeURIComponent(url);
+			        const profileName = `${profileConfig.firstName} ${profileConfig.lastName}`;
+			        const shareText = encodeURIComponent(`Check out ${profileName}'s profile!`);
+			        shareFacebookBtn.href = `https://www.facebook.com/sharer/sharer.php?u=${encodedUrl}`;
+			        shareTwitterBtn.href = `https://twitter.com/intent/tweet?url=${encodedUrl}&text=${shareText}`;
+			        console.log("Social share links updated.");
+			    }
+			
+			     // --- Logo Preloading Function for QRCode ---
+			    function preloadLogoViaImage(imagePath) {
+			        logoBase64 = null; // Reset
+			        return new Promise((resolve) => {
+			            if (!imagePath) {
+			                console.warn("[QR LOGO] No logo path provided.");
+			                resolve(false); // failure
+			                return;
+			            }
+			            console.log(`[QR LOGO] Attempting to preload: ${imagePath}`);
+			            const img = new Image();
+			            img.crossOrigin = "Anonymous"; // Necessary for cross-origin logos
+			            img.onload = () => {
+			                console.log(`[QR LOGO] Logo loaded: ${img.naturalWidth}x${img.naturalHeight}.`);
+			                const canvas = document.createElement('canvas');
+			                canvas.width = img.naturalWidth;
+			                canvas.height = img.naturalHeight;
+			                const ctx = canvas.getContext('2d');
+			                if (!ctx) {
+			                    console.error("[QR LOGO] Canvas context failure.");
+			                    resolve(false);
+			                    return;
+			                }
+			                try {
+			                    ctx.drawImage(img, 0, 0);
+			                    logoBase64 = canvas.toDataURL('image/png');
+			                    console.log("[QR LOGO] Logo converted to Base64 successfully.");
+			                    resolve(true);
+			                } catch (e) {
+			                    console.error("[QR LOGO] Canvas toDataURL error:", e);
+			                    resolve(false);
+			                }
+			            };
+			            img.onerror = (err) => {
+			                console.error(`[QR LOGO] Image load error for ${imagePath}:`, err);
+			                resolve(false); 
+			            };
+			            img.src = imagePath;
+			        });
+			    }
+			
+			    // --- Populate Profile Data ---
+			    function populateProfileData() {
+			         console.log("Populating profile data...");
+			         try {
+			             // Basic Info
+			             pageTitle.textContent = `${profileConfig.firstName} ${profileConfig.lastName} | Profile`;
+			             profilePic.src = profileConfig.profilePicUrl || `https://via.placeholder.com/140/CCCCCC/FFFFFF?text=${profileConfig.firstName.charAt(0)}${profileConfig.lastName.charAt(0)}`;
+			             profilePic.alt = `${profileConfig.firstName} ${profileConfig.lastName} Profile Picture`;
+			             fullName.textContent = `${profileConfig.firstName} ${profileConfig.lastName}`;
+			             occupation.textContent = profileConfig.occupation;
+			
+			             // Social Links
+			             socialLinksList.innerHTML = '';
+			             profileConfig.socialLinks?.forEach(link => {
+			                 if (link.url && link.name && link.icon) {
+			                     const li = document.createElement('li');
+			                     li.className = 'link-item';
+			                     li.innerHTML = `<a href="${link.url}" target="_blank" rel="noopener noreferrer"><i class="${link.icon}"></i> ${link.name}</a>`;
+			                     socialLinksList.appendChild(li);
+			                 }
+			             });
+			
+			             // Contact Links
+			             contactLinksList.innerHTML = '';
+			             profileConfig.contactLinks?.forEach(link => {
+			                  if (link.type && link.value && link.text && link.icon) {
+			                      let href = '#';
+			                      let target = '_self';
+			                      const encodedValue = encodeURIComponent(link.value);
+			                      const cleanTel = link.value.replace(/[^0-9+]/g, '');
+			                      const cleanWa = link.value.replace(/[^0-9]/g, '');
+			                      switch(link.type.toLowerCase()) {
+			                           case 'tel': href = `tel:${cleanTel}`; break;
+			                           case 'wa': href = `https://wa.me/${cleanWa}`; target = '_blank'; break;
+			                           case 'mailto': href = `mailto:${link.value}`; break;
+			                           case 'map': href = `https://maps.google.com/?q=${encodedValue}`; target = '_blank'; break;
+			                           case 'sms': href = `sms:${cleanTel}`; break;
+			                      }
+			                      const li = document.createElement('li');
+			                      li.className = 'link-item';
+			                      li.innerHTML = `<a href="${href}" target="${target}" ${target === '_blank' ? 'rel="noopener noreferrer"' : ''}><i class="${link.icon}"></i> ${link.text}</a>`;
+			                      contactLinksList.appendChild(li);
+			                  }
+			             });
+			
+			             // Section Visibility
+			             setVisibility(ratingsSection, profileConfig.sectionsVisibility?.ratings ?? true);
+			             setVisibility(bioSection, profileConfig.sectionsVisibility?.bio ?? true);
+			             setVisibility(milestonesSection, profileConfig.sectionsVisibility?.milestones ?? true);
+			             setVisibility(photosSection, profileConfig.sectionsVisibility?.photos ?? true);
+			             setVisibility(videosSection, profileConfig.sectionsVisibility?.videos ?? true);
+			             setVisibility(vcardSection, profileConfig.sectionsVisibility?.vcard ?? true);
+			             const showRatingsOverall = profileConfig.sectionsVisibility?.ratings ?? true;
+			             const showDetailedRatingsSpecific = profileConfig.sectionsVisibility?.detailedRatings ?? true;
+			             const detailedRatingsDataExists = profileConfig.detailedRatings && profileConfig.detailedRatings.length > 0;
+			             setVisibility(detailedRatingContainer, showRatingsOverall && showDetailedRatingsSpecific && detailedRatingsDataExists);
+			             setVisibility(globalRatingContainer, showRatingsOverall && profileConfig.globalRating);
+			
+			             // Ratings Data
+			             if (showRatingsOverall && profileConfig.globalRating) {
+			                 globalStars.innerHTML = generateStars(profileConfig.globalRating.score);
+			                 globalRatingText.textContent = `(${profileConfig.globalRating.score.toFixed(1)}/5${profileConfig.globalRating.reviews ? ` based on ${profileConfig.globalRating.reviews} reviews` : ''})`;
+			                 const showGiveRating = profileConfig.showGiveRatingButton === true;
+			                 const showReserveCoupon = profileConfig.showReserveCouponButton === true;
+			                 setVisibility(giveRatingBtn, showGiveRating);
+			                 setVisibility(reserveCouponBtn, showReserveCoupon);
+			                 setVisibility(ratingActionsContainer, showGiveRating || showReserveCoupon);
+			             } else {
+			                 setVisibility(giveRatingBtn, false);
+			                 setVisibility(reserveCouponBtn, false);
+			                 setVisibility(ratingActionsContainer, false);
+			             }
+			
+			             if (showRatingsOverall && showDetailedRatingsSpecific && detailedRatingsDataExists) {
+			                 detailedRatingsList.innerHTML = '';
+			                 profileConfig.detailedRatings.forEach(rating => {
+			                     const li = document.createElement('li');
+			                     li.innerHTML = `<span>${rating.category}</span><span class="stars">${generateStars(rating.score)}</span>`;
+			                     detailedRatingsList.appendChild(li);
+			                 });
+			             }
+			
+			             // Bio Content
+			             if ((profileConfig.sectionsVisibility?.bio ?? true) && profileConfig.bio?.length && bioContent) {
+			                  bioContent.innerHTML = profileConfig.bio.map(p => `<p>${p}</p>`).join('');
+			              }
+			
+			             // Milestones
+			             if ((profileConfig.sectionsVisibility?.milestones ?? true) && profileConfig.milestones?.length && milestonesList) {
+			                 milestonesList.innerHTML = '';
+			                 profileConfig.milestones.forEach(milestone => {
+			                     const li = document.createElement('li');
+			                     li.innerHTML = `${milestone.text}${milestone.year ? `<span class="milestone-year">${milestone.year}</span>` : ''}`;
+			                     milestonesList.appendChild(li);
+			                 });
+			             }
+			
+			             // Photo Gallery
+			             if ((profileConfig.sectionsVisibility?.photos ?? true) && profileConfig.photoGallery?.length && photoGallery) {
+			                 photoGallery.innerHTML = '';
+			                 profileConfig.photoGallery.forEach(photo => {
+			                     if (photo.thumb && photo.full) {
+			                         const img = document.createElement('img');
+			                         img.src = photo.thumb;
+			                         img.alt = photo.alt || 'Gallery Image';
+			                         img.dataset.fullsrc = photo.full;
+			                         img.loading = 'lazy';
+			                         img.addEventListener('click', handleImageClick);
+			                         photoGallery.appendChild(img);
+			                     }
+			                 });
+			             }
+			
+			             // Video Gallery
+			             if ((profileConfig.sectionsVisibility?.videos ?? true) && profileConfig.videoGallery?.length && videoGallery) {
+			                 videoGallery.innerHTML = '';
+			                 profileConfig.videoGallery.forEach(video => {
+			                      if (video.youtubeId) {
+			                          const videoId = video.youtubeId;
+			                          const title = video.title || 'Video';
+			                          const thumbnailUrl = `https://i.ytimg.com/vi/${videoId}/mqdefault.jpg`;
+			                          const itemDiv = document.createElement('div');
+			                          itemDiv.className = 'video-grid-item';
+			                          itemDiv.dataset.youtubeId = videoId;
+			                          itemDiv.dataset.videoTitle = title;
+			                          const imgElement = document.createElement('img');
+			                          imgElement.src = thumbnailUrl;
+			                          imgElement.alt = `Thumbnail for ${title}`;
+			                          imgElement.className = 'video-thumbnail';
+			                          imgElement.loading = 'lazy';
+			                          const titleElement = document.createElement('p');
+			                          titleElement.className = 'video-grid-title';
+			                          titleElement.textContent = title;
+			                          const overlayDiv = document.createElement('div');
+			                          overlayDiv.className = 'play-icon-overlay';
+			                          overlayDiv.innerHTML = `<i class="fas fa-play-circle"></i>`;
+			                          itemDiv.appendChild(imgElement);
+			                          itemDiv.appendChild(titleElement);
+			                          itemDiv.appendChild(overlayDiv);
+			                          itemDiv.addEventListener('click', handleVideoClick);
+			                          videoGallery.appendChild(itemDiv);
+			                      }
+			                 });
+			             }
+			             console.log("Profile data population complete.");
+			         } catch (error) {
+			              console.error("Error during populateProfileData:", error);
+			         }
+			    }
+			
+			
+			    // --- Tab Switching Logic ---
+			    tabButtons.forEach(button => {
+			        button.addEventListener('click', () => {
+			            const tabId = button.getAttribute('data-tab');
+			            tabButtons.forEach(btn => {
+			                btn.classList.remove('active');
+			            });
+			            tabContents.forEach(content => {
+			                content.classList.remove('active');
+			            });
+			            button.classList.add('active');
+			            const activeContent = document.getElementById(tabId);
+			            if (activeContent) {
+			                activeContent.classList.add('active');
+			            } else {
+			                console.warn(`Tab content with id '${tabId}' not found.`);
+			            }
+			        });
+			    });
+			
+			
+			    // --- Modal Event Listeners ---
+			
+			    // Close Buttons
+			    allCloseButtons.forEach(button => {
+			        const modalId = button.dataset.modalId;
+			        const modalToClose = document.getElementById(modalId);
+			        if (modalToClose) {
+			            button.addEventListener('click', () => closeModal(modalToClose));
+			        } else {
+			            console.warn(`Modal target '${modalId}' for close button not found.`);
+			        }
+			    });
+			    // Backdrop Click
+			    allModals.forEach(modal => {
+			        modal.addEventListener('click', (event) => {
+			            if (event.target === modal) {
+			                closeModal(modal);
+			            }
+			        });
+			    });
+			    // Escape Key
+			    window.addEventListener('keydown', (event) => {
+			        if (event.key === 'Escape') {
+			            let activeModal = null;
+			            for (let i = allModals.length - 1; i >= 0; i--) { // Find tp visible modal
+			                if (allModals[i].style.display === 'flex') {
+			                    activeModal = allModals[i];
+			                    break;
+			                }
+			            }
+			            if (activeModal) {
+			                closeModal(activeModal);
+			            }
+			        }
+			    });
+			
+			
+			    // --- Generate QR ---
+			    function generateStyledQRCode(url) {
+			        // Verify Library exists
+			        if (typeof QRCodeStyling === 'undefined') {
+			            console.error("FATAL: QRCodeStyling library is not loaded.");
+			            if (qrcodeContainer) qrcodeContainer.innerHTML = '<p style="color: red; font-size: small; text-align: center;">Error: QR Lib Missing!</p>';
+			            if (downloadQRBtn) downloadQRBtn.disabled = true;
+			            styledQrCodeInstance = null;
+			            return;
+			        }
+			        // Verify inputs
+			        if (!url || !qrcodeContainer) {
+			            console.error("QR Generation Error: Missing URL or #qrcode container.");
+			            if (qrcodeContainer) qrcodeContainer.innerHTML = '<p style="color: red; font-size: small; text-align: center;">Error: Cfg Issue.</p>';
+			            if (downloadQRBtn) downloadQRBtn.disabled = true;
+			            styledQrCodeInstance = null; 
+			            return;
+			        }
+			
+			        console.log(`[QR Gen] Starting generation for ${url}. Logo present: ${!!logoBase64}`);
+			
+			        // Reset UI and state before generating
+			        qrcodeContainer.innerHTML = '';
+			        styledQrCodeInstance = null;
+			        if (downloadQRBtn) downloadQRBtn.disabled = true;
+
+			        const currentContainerSize = Math.min(qrcodeContainer.clientWidth, qrcodeContainer.clientHeight);
+			        const qrSize = Math.max(100, currentContainerSize);
+			        console.log(`[QR Gen] Container size detected: ${qrcodeContainer.clientWidth}x${qrcodeContainer.clientHeight}. Using QR size: ${qrSize}x${qrSize}`);
+			
+			        const previewOptions = {
+			            width: qrSize,
+			            height: qrSize,
+			            type: 'svg',
+			            data: url, 
+			            image: logoBase64 || undefined,
+			            qrOptions: {
+			                errorCorrectionLevel: 'H'
+			            },
+			            imageOptions: logoBase64 ? {
+			                hideBackgroundDots: true,
+			                imageSize: 0.4,
+			                margin: Math.max(1, Math.floor(qrSize * 0.02))
+			            } : undefined,
+			            dotsOptions: {
+			                color: '#2c3e50',
+			                type: 'extra-rounded'
+			            },
+			            backgroundOptions: {
+			                color: '#ffffff',
+			            },
+			            cornersSquareOptions: {
+			                color: '#2c3e50',
+			                type: 'extra-rounded'
+			            },
+			            cornersDotOptions: {
+			                color: '#2c3e50'
+			            }
+			        };
+			        if (!previewOptions.image) {
+			            delete previewOptions.imageOptions;
+			        }
+			
+			        // --- Generate and Append ---
+			        try {
+			            console.log("[QR Gen] Creating PREVIEW instance with options:", previewOptions);
+			            styledQrCodeInstance = new QRCodeStyling(previewOptions);
+			            styledQrCodeInstance.append(qrcodeContainer);
+			
+			            if (downloadQRBtn) downloadQRBtn.disabled = false;
+			            console.log("[QR Gen] Successfully generated and appended preview SVG.");
+			
+			        } catch (error) {
+			            console.error("[QR Gen] Error creating/appending preview QR:", error);
+			            if (qrcodeContainer) qrcodeContainer.innerHTML = `<p style="color: red; font-size: small; text-align: center;">QR Generation Failed:<br>${error.message}</p>`;
+			            styledQrCodeInstance = null;
+			            if (downloadQRBtn) downloadQRBtn.disabled = true;
+			        }
+			    }
+			
+			     // --- Share Modal OPEN Button Listener ---
+			    if (openShareModalBtn) {
+			        openShareModalBtn.addEventListener('click', async () => {
+			            const urlToEncode = profileConfig.websiteUrl || window.location.href;
+			            const logoToLoad = logoPath;
+			
+			            console.log(`Share Button Clicked. URL: ${urlToEncode}. Attempting logo load: ${logoToLoad}`);
+			
+			            // 1. Set Loading State & Open Modal Immediately
+			            if (qrcodeContainer) qrcodeContainer.innerHTML = '<p style="padding: 20px; color:#555; font-size:small; text-align: center;">Loading QR...</p>';
+			            if (downloadQRBtn) downloadQRBtn.disabled = true;
+			            styledQrCodeInstance = null;
+			            openModal(shareModal);
+			
+			            // 2. Try to Preload Logo
+			            try {
+			               let logoLoaded = await preloadLogoViaImage(logoToLoad);
+			               console.log(`Logo preload completed. Success: ${logoLoaded}`);
+			            } catch (error) {
+			                console.error("Error occurred during logo preloading:", error);
+			            }
+			
+			            // 3. Generate the Styled QR Code
+			            requestAnimationFrame(() => {
+			                generateStyledQRCode(urlToEncode);
+			
+			            // 4. Setup Social Share Links
+			                setupShareLinks(urlToEncode);
+			                console.log("QR generation and link setup triggered via requestAnimationFrame.");
+			        });
+			        });
+			    } else {
+			        console.warn("Share button (#openShareModal) could not be found.");
+			    }
+			
+			     // --- Download QR Button Listener ---
+			    if (downloadQRBtn) {
+			        downloadQRBtn.addEventListener('click', async () => {
+			            // Check if the QR instance from the generation step exists
+			            if (!styledQrCodeInstance) {
+			                console.error("[QR Download] Download clicked, but 'styledQrCodeInstance' is missing.");
+			                alert("Cannot download QR Code. Please close and reopen share modal first.");
+			                return;
+			            }
+			
+			            const originalButtonText = downloadQRBtn.innerHTML;
+			            downloadQRBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Preparing SVG...'; 
+			            downloadQRBtn.disabled = true;
+			
+			            try {
+			                // Generate a safe filename
+			                const safeFilename = `${profileConfig.firstName}-${profileConfig.lastName}-profile-qr`.toLowerCase().replace(/[^a-z0-9\-]/g, '_');
+			                console.log(`[QR Download] Requesting 300x300 SVG download: ${safeFilename}.svg`);
+			
+			                await styledQrCodeInstance.download({
+			                    name: safeFilename,
+			                    extension: 'svg', 
+			                    width: 300,
+			                    height: 300 
+			                });
+			
+			                console.log("[QR Download] SVG download initiated via library method.");
+			
+			            } catch (error) {
+			                 console.error('[QR Download] Error during QR code SVG download process:', error);
+			                 alert(`Could not download SVG QR Code: ${error.message || 'Unknown error'}`);
+			             } finally {
+			                  downloadQRBtn.innerHTML = originalButtonText;
+			                  downloadQRBtn.disabled = !styledQrCodeInstance;
+			                  console.log("[QR Download] Button state restored.");
+			             }
+			        });
+			    } else {
+			        console.warn("Download QR Button (#download-qr) could not be found.");
+			    }
+			
+			
+			    // --- vCard Download Logic ---
+			     if (downloadVcardBtn && (profileConfig.sectionsVisibility?.vcard ?? true)) {
+			        downloadVcardBtn.addEventListener('click', async () => {
+			            console.log("vCard download clicked.");
+			            const originalButtonText = downloadVcardBtn.innerHTML;
+			            downloadVcardBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Generating...';
+			            downloadVcardBtn.disabled = true;
+			
+			            let vCard = `BEGIN:VCARD\r\nVERSION:3.0\r\n`;
+			            vCard += `FN:${profileConfig.firstName} ${profileConfig.lastName}\r\n`;
+			            vCard += `N:${profileConfig.lastName};${profileConfig.firstName};;;\r\n`;
+			            if (profileConfig.occupation) { vCard += `TITLE:${profileConfig.occupation}\r\n`; }
+			            if (profileConfig.vCardInfo?.organization) { vCard += `ORG:${profileConfig.vCardInfo.organization}\r\n`; }
+			            // Photo Handling
+			            let photoData = '';
+			             if (profileConfig.profilePicUrl) {
+			                 console.log("vCard: Fetching photo:", profileConfig.profilePicUrl);
+			                 try {
+			                     const response = await fetch(profileConfig.profilePicUrl);
+			                     if (response.ok) {
+			                         const blob = await response.blob();
+			                         const contentType = blob.type;
+			                         const imageType = contentType.split('/')[1]?.toUpperCase();
+			                         if (imageType && ['JPEG', 'JPG', 'PNG', 'GIF'].includes(imageType)) {
+			                              const reader = new FileReader();
+			                              const base64String = await new Promise((resolve, reject) => {
+			                                  reader.onloadend = () => resolve(reader.result);
+			                                  reader.onerror = reject;
+			                                  reader.readAsDataURL(blob);
+			                              });
+			                              const base64Data = base64String.split(',')[1];
+			                              if (base64Data) {			
+			                                  const vcardImageType = imageType === 'JPG' ? 'JPEG' : imageType;
+			                                  photoData = `PHOTO;BASE64;TYPE=${vcardImageType}:${base64Data}\r\n`;
+			                                  console.log("vCard: Photo added (single line, Base64 syntax).");
+			                              }
+			                          } else { console.warn("vCard photo type unsupported:", contentType); }
+			                     } else { throw new Error(`HTTP ${response.status}`); }
+			                 } catch (error) { console.error("vCard photo error:", error); }
+			             }
+			             vCard += photoData;
+			            // Contact Links
+			             profileConfig.contactLinks?.forEach(link => {
+			                 const cleanValue = link.value?.trim();
+			                 if (!cleanValue) return;
+			                 const cleanTel = cleanValue.replace(/[^0-9+]/g, '');
+			                 const cleanWa = cleanValue.replace(/[^0-9]/g, '');
+			                 switch (link.type.toLowerCase()) {
+                                //--- --- --- --- --- --- --- --- --- --- --- --- --- Must be Updated
+			                     case 'tel': vCard += `TEL;TYPE=WORK,VOICE:${cleanTel}\r\n`; break;
+			                     case 'mailto': vCard += `EMAIL;TYPE=WORK:${cleanValue}\r\n`; break;
+			                     case 'map': if (link.text !== profileConfig.vCardInfo?.address) { vCard += `URL;TYPE=Map:https://maps.google.com/?q=${encodeURIComponent(cleanValue)}\r\n`; } break;
+			                     case 'wa': vCard += `URL;TYPE=WhatsApp:https://wa.me/${cleanWa}\r\n`; break;
+			                     case 'sms': vCard += `TEL;TYPE=CELL,SMS:${cleanTel}\r\n`; break;
+			                 }
+			             });
+			            // Address
+			             if (profileConfig.vCardInfo?.address) {
+			                 const addressExists = profileConfig.contactLinks?.some(l => l.type.toLowerCase() === 'map' && l.value?.trim() === profileConfig.vCardInfo.address.trim());
+			                 if (!addressExists) { vCard += `ADR;TYPE=WORK:;;${profileConfig.vCardInfo.address.replace(/\n/g, '\\n')};;;;\r\n`; }
+			             }
+			            // Other URLs
+			            profileConfig.socialLinks?.forEach(link => { if (link.url?.trim()) { vCard += `URL:${link.url.trim()}\r\n`; } });
+			            if (profileConfig.websiteUrl?.trim()) { vCard += `URL:${profileConfig.websiteUrl.trim()}\r\n`; }
+			            // Note
+			            if (profileConfig.vCardInfo?.note) { vCard += `NOTE:${profileConfig.vCardInfo.note.replace(/\n/g, '\\n')}\r\n`; }
+			            // End
+			            vCard += `REV:${new Date().toISOString().replace(/[-:.]/g, '')}Z\r\nEND:VCARD`;
+			            // Download trigger
+			            console.log("Generated vCard:\n", vCard);
+			            const blob = new Blob([vCard], { type: 'text/vcard;charset=utf-8' });
+			            const url = URL.createObjectURL(blob);
+			            const linkElement = document.createElement('a');
+			            linkElement.href = url;
+			            const safeFilename = `${profileConfig.firstName}-${profileConfig.lastName}-contact`.toLowerCase().replace(/[^a-z0-9\-]/g, '_');
+			            linkElement.download = `${safeFilename}.vcf`;
+			            document.body.appendChild(linkElement);
+			            linkElement.click();
+			            document.body.removeChild(linkElement);
+			            URL.revokeObjectURL(url);
+			            console.log("vCard download triggered.");
+			            // Restore button
+			            downloadVcardBtn.innerHTML = originalButtonText;
+			            downloadVcardBtn.disabled = false;
+			        });
+			    } else if (downloadVcardBtn) {
+			         downloadVcardBtn.style.display = 'none';
+			    }
+			
+			
+			    // --- Rating action Button Listeners ---
+			    if (giveRatingBtn) {
+			        giveRatingBtn.addEventListener('click', () => {
+			            alert('Give Rating action triggered.');
+			        });
+			    }
+			    if (reserveCouponBtn) {
+			        reserveCouponBtn.addEventListener('click', () => {
+			            alert('Reserve Coupon action triggered.');
+			        });
+			    }
+			
+			
+			    // --- Contact Exchange Modal OPEN Button Listener ---			
+			    if (openContactExchangeModalBtn) {
+			        openContactExchangeModalBtn.addEventListener('click', () => {
+			            console.log("Contact Exchange button clicked. Attempting to open #contact-exchange-modal");
+			            // Get the target modal element it won't exist yet, but openModal handles null
+			            const targetModal = document.getElementById('contact-exchange-modal');
+			            if (targetModal) { // If the modal does exist in HTML later
+			               openModal(targetModal);
+			            } else {
+			                console.warn("Modal with ID 'contact-exchange-modal' not found in HTML. Cannot open.");
+			                alert("Contact sharing feature coming soon!");
+			            }
+			        });
+			    } else {
+			        console.warn("Contact Exchange button (#openContactExchangeModal) not found.");
+			    }
+
+			    // --- Initial Page Load Setup ---
+			    try {
+			        populateProfileData(); // Populate all content
+			
+			        // Set the active tab
+			        const initialTab = document.querySelector('.tab-button.active');
+			        if (initialTab) {
+			            const initialTabId = initialTab.getAttribute('data-tab');
+			            const initialContent = document.getElementById(initialTabId);
+			            if (initialContent) {
+			                document.querySelectorAll('.tab-content').forEach(tc => tc.classList.remove('active'));
+			                initialContent.classList.add('active');
+			                console.log(`Initial active tab set to: ${initialTabId}`);
+			            } else {
+			                console.warn(`Initial active tab content '#${initialTabId}' not found. Activating first tab.`);
+			                if (tabButtons.length > 0) tabButtons[0].click();
+			            }
+			        } else if (tabButtons.length > 0) {
+			            console.log("No initial active tab defined in HTML, activating first tab.");
+			            tabButtons[0].click();
+			        }
+			         console.log("Initial setup complete.");
+			
+			    } catch (error) {
+			         console.error("FATAL Error during initial profile data population or setup:", error);
+			         document.body.innerHTML = `<div style="font-family: sans-serif; color: red; text-align: center; padding: 40px; border: 1px solid red; margin: 20px;"><h2>Error loading profile.</h2><p>Please check the browser console (press F12) for details.</p><pre style="text-align: left; margin-top: 1em; background: #fdd; padding: 10px; white-space: pre-wrap; word-wrap: break-word;">${error.stack || error}</pre></div>`;
+			    }
+			});
+		</script>
+	</body>
+</html>
